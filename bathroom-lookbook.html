@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interior Design Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f8f4ef;
+      --warm-white: #fdfaf6;
+      --ink: #1e1b18;
+      --taupe: #9c8f82;
+      --rule: #d6cec5;
+      --accent: #8b6f47;
+    }
+
+    body {
+      background: var(--warm-white);
+      color: var(--ink);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 40px;
+      background: var(--cream);
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+    }
+    .cover-eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: 32px;
+    }
+    .cover-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(42px, 7vw, 88px);
+      line-height: 1.05;
+      letter-spacing: -0.5px;
+      margin-bottom: 24px;
+      max-width: 700px;
+    }
+    .cover-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .cover-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto 24px;
+    }
+    .cover-sub {
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--taupe);
+      max-width: 540px;
+      line-height: 1.8;
+    }
+    .cover-count {
+      position: absolute;
+      bottom: 40px;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--taupe);
+    }
+
+    /* ── NAV TOC ── */
+    .toc {
+      padding: 64px 60px;
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .toc-header {
+      grid-column: 1 / -1;
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: 32px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-item {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--rule);
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.2s;
+    }
+    .toc-item:hover { color: var(--accent); }
+    .toc-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px;
+      color: var(--taupe);
+      min-width: 24px;
+    }
+    .toc-name {
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+    .toc-loc {
+      font-size: 11px;
+      color: var(--taupe);
+      margin-left: auto;
+      padding-left: 16px;
+    }
+
+    /* ── FIRM SECTIONS ── */
+    .firm {
+      padding: 80px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--rule);
+    }
+    .firm-header {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0 48px;
+      align-items: start;
+      margin-bottom: 48px;
+    }
+    .firm-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--rule);
+      padding-top: 4px;
+    }
+    .firm-meta {}
+    .firm-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .firm-name a {
+      text-decoration: none;
+      color: inherit;
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .firm-name a:hover { border-color: var(--accent); color: var(--accent); }
+    .firm-location {
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: 16px;
+    }
+    .firm-desc {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #4a443e;
+      max-width: 560px;
+    }
+    .firm-tag {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 4px 10px;
+    }
+
+    /* ── PROJECT SUB-HEADERS ── */
+    .project-block {
+      margin-top: 56px;
+    }
+    .project-block:first-of-type {
+      margin-top: 0;
+    }
+    .project-header {
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .project-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .project-meta {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--taupe);
+    }
+    .project-desc {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #5a524b;
+      max-width: 640px;
+      margin-top: 12px;
+    }
+
+    /* ── GALLERIES ── */
+    .gallery {
+      display: grid;
+      gap: 12px;
+    }
+    .gallery-2 { grid-template-columns: 1fr 1fr; }
+    .gallery-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .gallery-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    .gallery-2-1 { grid-template-columns: 2fr 1fr; }
+    .gallery-1-2 { grid-template-columns: 1fr 2fr; }
+
+    .img-wrap {
+      overflow: hidden;
+      background: var(--cream);
+      position: relative;
+    }
+    .img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .img-wrap:hover img { transform: scale(1.03); }
+
+    .img-tall     { aspect-ratio: 3/4; }
+    .img-wide     { aspect-ratio: 4/3; }
+    .img-sq       { aspect-ratio: 1; }
+    .img-short    { aspect-ratio: 5/3; }
+    .img-portrait { aspect-ratio: 2/3; }
+    .img-pano     { aspect-ratio: 16/7; }
+
+    .img-label {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-top: 8px;
+    }
+
+    .span-2 { grid-column: span 2; }
+    .span-3 { grid-column: span 3; }
+
+    /* ── PLACEHOLDER CARD ── */
+    .placeholder-card {
+      background: var(--cream);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 40px;
+      border: 1px solid var(--rule);
+    }
+    .placeholder-card .ph-eyebrow {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: 20px;
+    }
+    .placeholder-card .ph-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-style: italic;
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+    .placeholder-card .ph-desc {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #6b645d;
+      max-width: 380px;
+      margin-bottom: 24px;
+    }
+    .placeholder-card a {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 2px;
+    }
+    .placeholder-card a:hover { opacity: 0.7; }
+
+    /* ── PROJECT FEATURE CARD (Rose Uniacke) ── */
+    .project-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .project-card-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px 48px;
+      background: var(--cream);
+    }
+    .project-card-eyebrow {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: 14px;
+    }
+    .project-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .project-card-body {
+      font-size: 13px;
+      line-height: 1.85;
+      color: #5a524b;
+      max-width: 400px;
+    }
+    .project-card-link {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 2px;
+    }
+    .project-card-link:hover { opacity: 0.7; }
+
+    /* ── COLOPHON ── */
+    .colophon {
+      padding: 60px;
+      text-align: center;
+      background: var(--cream);
+      border-top: 1px solid var(--rule);
+    }
+    .colophon p {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--taupe);
+      line-height: 2;
+    }
+
+    @media (max-width: 768px) {
+      .firm { padding: 60px 24px; }
+      .toc { padding: 40px 24px; grid-template-columns: 1fr; }
+      .firm-header { grid-template-columns: 1fr; }
+      .firm-num { font-size: 40px; margin-bottom: 8px; }
+      .gallery-2, .gallery-3, .gallery-4, .gallery-2-1, .gallery-1-2 {
+        grid-template-columns: 1fr;
+      }
+      .span-2, .span-3 { grid-column: span 1; }
+      .project-card { grid-template-columns: 1fr; }
+      .project-card-text { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <p class="cover-eyebrow">Studio Reference · Church Renovation &amp; Beyond</p>
+  <h1 class="cover-title">Interior Design<br/><em>Guide</em></h1>
+  <div class="cover-rule"></div>
+  <p class="cover-sub">Nine studios — bespoke, quiet, collected. Materials with soul, spaces that feel lived in. A working reference for interiors of character and craft.</p>
+  <p class="cover-count">9 Studios &nbsp;·&nbsp; Homes · Hotels · Yachts · Inns</p>
+</section>
+
+<!-- TABLE OF CONTENTS -->
+<section style="background: var(--warm-white); border-bottom: 1px solid var(--rule);">
+  <div class="toc">
+    <p class="toc-header">Studios &amp; Makers</p>
+
+    <a class="toc-item" href="#katie-martinez">
+      <span class="toc-num">01</span>
+      <span class="toc-name">Katie Martinez Design</span>
+      <span class="toc-loc">San Francisco · New England</span>
+    </a>
+    <a class="toc-item" href="#mother-studio">
+      <span class="toc-num">02</span>
+      <span class="toc-name">Mother Studio</span>
+      <span class="toc-loc">Asheville, NC</span>
+    </a>
+    <a class="toc-item" href="#reath-design">
+      <span class="toc-num">03</span>
+      <span class="toc-name">Reath Design</span>
+      <span class="toc-loc">Los Angeles, CA</span>
+    </a>
+    <a class="toc-item" href="#commune-design">
+      <span class="toc-num">04</span>
+      <span class="toc-name">Commune Design</span>
+      <span class="toc-loc">Los Angeles, CA</span>
+    </a>
+    <a class="toc-item" href="#nickey-kehoe">
+      <span class="toc-num">05</span>
+      <span class="toc-name">Nickey Kehoe</span>
+      <span class="toc-loc">Los Angeles · New York</span>
+    </a>
+    <a class="toc-item" href="#studio-ko">
+      <span class="toc-num">06</span>
+      <span class="toc-name">Studio KO</span>
+      <span class="toc-loc">Paris · Marrakech · London</span>
+    </a>
+    <a class="toc-item" href="#arent-pyke">
+      <span class="toc-num">07</span>
+      <span class="toc-name">Arent &amp; Pyke</span>
+      <span class="toc-loc">Sydney · Melbourne</span>
+    </a>
+    <a class="toc-item" href="#studioilse">
+      <span class="toc-num">08</span>
+      <span class="toc-name">Studioilse</span>
+      <span class="toc-loc">London · International</span>
+    </a>
+    <a class="toc-item" href="#rose-uniacke">
+      <span class="toc-num">09</span>
+      <span class="toc-name">Rose Uniacke</span>
+      <span class="toc-loc">London · Pimlico</span>
+    </a>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 01 KATIE MARTINEZ DESIGN               -->
+<!-- ═══════════════════════════════════════ -->
+<section class="firm" id="katie-martinez">
+  <div class="firm-header">
+    <div class="firm-num">01</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://katiemartinezdesign.com" target="_blank">Katie Martinez Design</a></h2>
+      <p class="firm-location">San Francisco · New England</p>
+      <p class="firm-desc">KMD blends playful and refined — layering vintage, handcrafted, and custom-designed pieces with a sensitivity to color and pattern that feels collected rather than decorated. Her bathrooms use artisan tile, warm wood cabinetry, and natural stone to create spaces that feel both personal and timeless. The perfect balance of quiet and quirky.</p>
+      <span class="firm-tag">Interior Design</span>
+    </div>
+  </div>
+
+  <div class="gallery" style="grid-template-columns: 1fr 1fr; gap: 12px;">
+    <div class="img-wrap img-tall">
+      <img src="https://katiemartinezdesign.com/wp-content/uploads/2024/11/4-Powder-Room-2.jpg"
+           alt="Ripley Residence — Powder Room, Katie Martinez Design"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div style="display: grid; grid-template-rows: 1fr 1fr; gap: 12px;">
+      <div class="img-wrap">
+        <img src="https://katiemartinezdesign.com/wp-content/uploads/2024/11/4.5-Powder-Room-1-v2.jpg"
+             alt="Ripley Residence — Powder Room 2, Katie Martinez Design"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap">
+        <img src="https://katiemartinezdesign.com/wp-content/uploads/2024/11/12-Primary-Bathroom.jpg"
+             alt="Ripley Residence — Primary Bathroom, Katie Martinez Design"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <div class="img-wrap img-wide span-2">
+      <img src="https://katiemartinezdesign.com/wp-content/uploads/2024/11/10-Chester-Bathroom-1.jpg"
+           alt="Ripley Residence — Chester Bathroom, Katie Martinez Design"
+           style="max-height: 480px;"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+  <p class="img-label" style="margin-top:12px;">Ripley Residence, Weston, MA &nbsp;·&nbsp; Photography: Sian Richards</p>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 02 MOTHER STUDIO                        -->
+<!-- ═══════════════════════════════════════ -->
+<section class="firm" id="mother-studio" style="background: var(--cream);">
+  <div class="firm-header">
+    <div class="firm-num">02</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://motherstudio.com" target="_blank">Mother Studio</a></h2>
+      <p class="firm-location">Asheville, NC &nbsp;·&nbsp; Working Nationally</p>
+      <p class="firm-desc">Laura Evans and Karie Reinertson run a studio grounded in the culture of the handmade. Bespoke hand-painted tile, wood-paneled walls, and an easy interplay of pattern and natural material define bathrooms that feel rooted in craft and place. Nothing obvious. Nothing cheap. The Suppertime project was built in collaboration with Maryann Thompson Architects.</p>
+      <span class="firm-tag">Interior Design + Craft</span>
+    </div>
+  </div>
+
+  <div class="gallery gallery-2" style="gap: 12px;">
+    <div class="img-wrap img-tall">
+      <img src="https://images.squarespace-cdn.com/content/v1/66e0cd8985d6f102f3db2569/a2fab992-c8c6-493a-8925-315a9a0734fc/Suppertime_Powder-Bathroom_003.jpg"
+           alt="Suppertime — Powder Bathroom, Mother Studio"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img src="https://images.squarespace-cdn.com/content/v1/66e0cd8985d6f102f3db2569/3193f27e-9e5e-49b5-8ad6-558e12edc40e/Suppertime_Primary-Bathroom_005.jpg"
+           alt="Suppertime — Primary Bathroom, Mother Studio"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-wide">
+      <img src="https://images.squarespace-cdn.com/content/v1/66e0cd8985d6f102f3db2569/82858075-546b-4327-b697-ff021443433f/Suppertime_Guest-Bathroom_005.jpg"
+           alt="Suppertime — Guest Bathroom, Mother Studio"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-wide">
+      <img src="https://images.squarespace-cdn.com/content/v1/66e0cd8985d6f102f3db2569/0b3df478-a2da-4e9d-9fe0-bfae6cd7fb9a/Suppertime_Guest-House_Bathroom_011.jpg"
+           alt="Suppertime — Guest House Bathroom, Mother Studio"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+  <p class="img-label" style="margin-top:12px;">Suppertime, Martha's Vineyard &nbsp;·&nbsp; Architecture: Maryann Thompson Architects &nbsp;·&nbsp; Photography: Nicole Franzen</p>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 03 REATH DESIGN                        -->
+<!-- ═══════════════════════════════════════ -->
+<section class="firm" id="reath-design">
+  <div class="firm-header">
+    <div class="firm-num">03</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://www.reathdesign.com" target="_blank">Reath Design</a></h2>
+      <p class="firm-location">Los Angeles, CA &nbsp;·&nbsp; Frances Merrill</p>
+      <p class="firm-desc">Frances Merrill founded Reath Design in 2009 after working at Commune Design, and her studio is everything Commune is — but more layered, more personal. She uses wallpaper with abandon, mixes pattern and texture across eras, and brings an art-world sensibility that keeps rooms from tipping into decoration. Her bathrooms are known for a strong material gesture — graphic tile, a slab of book-matched marble, warm wood — held in tension with something unexpected: a vintage fixture, an odd color, a print that shouldn't work but does. Quiet confidence with a wink.</p>
+      <span class="firm-tag">Interior Design</span>
+    </div>
+  </div>
+
+  <!-- Row 1: Powder room hero + Point Dume -->
+  <div class="gallery gallery-2" style="gap:12px; margin-bottom: 12px;">
+    <div class="img-wrap img-tall">
+      <img src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2025/03/07.-Powder-Room-Reath_Portland6035Final.jpg"
+           alt="Portland Residence — Powder Room, Reath Design"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div style="display: grid; grid-template-rows: 1fr 1fr; gap: 12px;">
+      <div class="img-wrap">
+        <img src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/08/PointDume.2.jpg"
+             alt="Point Dume, Malibu — Interior, Reath Design"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap">
+        <img src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/08/PointDume.1.jpg"
+             alt="Point Dume, Malibu — Interior, Reath Design"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2: Supporting rooms -->
+  <div class="gallery gallery-2" style="gap:12px;">
+    <div class="img-wrap img-wide">
+      <img src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/08/SantaMonica.1.jpg"
+           alt="Santa Monica Beach House, Reath Design"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-wide">
+      <img src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/08/ReathDesign_PointDume_kitchen.jpg"
+           alt="Point Dume Kitchen, Reath Design"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+  <p class="img-label" style="margin-top:12px;">Portland Residence (powder room) &nbsp;·&nbsp; Point Dume, Malibu &nbsp;·&nbsp; Santa Monica Beach House &nbsp;·&nbsp; Reath Design by Frances Merrill &nbsp;·&nbsp; Via 1stDibs Introspective</p>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 04 COMMUNE DESIGN                      -->
+<!-- ═══════════════════════════════════════ -->
+<section class="firm" id="commune-design" style="background: var(--cream);">
+  <div class="firm-header">
+    <div class="firm-num">04</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://www.communedesign.com" target="_blank">Commune Design</a></h2>
+      <p class="firm-location">Los Angeles, CA &nbsp;·&nbsp; Roman Alonso &amp; Steven Johanknecht</p>
+      <p class="firm-desc">Commune is where Frances Merrill trained — a studio built on mid-century reference, material honesty, and an unfussy California sensibility. Their West Marin Retreat (above Tomales Bay) is a study in restraint with personality: limewashed walls, local craftwork, Edith Heath and Josef Frank tile in the bathrooms, and furniture by JB Blunk. Mid-century Scandinavian summer house meets Northern California landscape. Color and pattern turned up just enough.</p>
+      <span class="firm-tag">Interior Design + Architecture</span>
+    </div>
+  </div>
+
+  <!-- Row 1: 3-up -->
+  <div class="gallery gallery-3" style="gap:12px; margin-bottom: 12px;">
+    <div class="img-wrap img-tall">
+      <img src="https://images.ctfassets.net/k1tan84lsd0d/1GYDARYtgLgcnJ0tZuWF3T/8d0e96127a5597d794d7f7e5431724c5/CommuneInverness1204Final.jpg?w=900"
+           alt="West Marin Retreat — Interior, Commune Design"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img src="https://images.ctfassets.net/k1tan84lsd0d/52kzMJz1n5qpvw6VWJCR0R/a4475d287f02b142f024a4a510f05bd5/CommuneInverness0197Final.jpg?w=900"
+           alt="West Marin Retreat — Interior, Commune Design"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img src="https://images.ctfassets.net/k1tan84lsd0d/2ptV8RjEV3n9GLWfN81Zh8/8b03ac8b7158f881b6682704e108de5c/CommuneInverness0800Final.jpg?w=900"
+           alt="West Marin Retreat — Interior, Commune Design"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+
+  <!-- Row 2: wide panoramic -->
+  <div class="gallery gallery-2" style="gap:12px;">
+    <div class="img-wrap img-wide">
+      <img src="https://images.ctfassets.net/k1tan84lsd0d/mcusRsQlDJMKwwpNzpOjy/a5c53a8f92718a7938e699bcba782085/CommuneInverness1006Final.jpg?w=900"
+           alt="West Marin Retreat — Interior, Commune Design"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-wide">
+      <img src="https://images.ctfassets.net/k1tan84lsd0d/iHi8N5TGNIE88QSnIPZp2/c2b7b0750daf2090a13dd1a85cceb6a4/CommuneInverness0862Final.jpg?w=1800"
+           alt="West Marin Retreat — Interior, Commune Design"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+  <p class="img-label" style="margin-top:12px;">West Marin Retreat, Tomales Bay, CA &nbsp;·&nbsp; Commune Design &nbsp;·&nbsp; Bathrooms: Edith Heath + Josef Frank tile</p>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 05 NICKEY KEHOE                        -->
+<!-- ═══════════════════════════════════════ -->
+<section class="firm" id="nickey-kehoe">
+  <div class="firm-header">
+    <div class="firm-num">05</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://nickeykehoe.com/blogs/portfolio" target="_blank">Nickey Kehoe</a></h2>
+      <p class="firm-location">Los Angeles · New York &nbsp;·&nbsp; Todd Nickey &amp; Amy Kehoe</p>
+      <p class="firm-desc">Todd Nickey and Amy Kehoe run one of LA's most quietly distinctive studios — color-forward without being obvious, eclectic without being chaotic. Their interiors pull from textile history, vintage finds, and their own NK Collection to build rooms that feel genuinely inhabited. Bathrooms feature custom onyx or stone vanities, wallpaper murals (often Gracie Studio), and materials that age well: unlacquered brass, honed surfaces, richly grained wood. Bespoke and considered, never trend-driven.</p>
+      <span class="firm-tag">Interior Design</span>
+    </div>
+  </div>
+
+  <!-- Row 1: Brentwood -->
+  <div class="gallery gallery-3" style="gap:12px; margin-bottom: 12px;">
+    <div class="img-wrap img-tall">
+      <img src="https://cdn.shopify.com/s/files/1/1713/4363/files/DArnold_021026_NickeyKehoe_17781_web.jpg?v=1777053484"
+           alt="Brentwood Residence, Nickey Kehoe"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img src="https://cdn.shopify.com/s/files/1/1713/4363/files/DArnold_021026_NickeyKehoe_18132_web.jpg?v=1777053485"
+           alt="Brentwood Residence, Nickey Kehoe"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img src="https://cdn.shopify.com/s/files/1/1713/4363/files/DArnold_021026_NickeyKehoe_18302_edit_web.jpg?v=1777053484"
+           alt="Brentwood Residence, Nickey Kehoe"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+
+  <!-- Row 2: Santa Monica Canyon -->
+  <div class="gallery gallery-2" style="gap:12px;">
+    <div class="img-wrap img-wide">
+      <img src="https://cdn.shopify.com/s/files/1/1713/4363/files/NK-Rustic_Canyon-5.jpg?v=1757976310"
+           alt="Santa Monica Canyon, Nickey Kehoe"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-wide">
+      <img src="https://cdn.shopify.com/s/files/1/1713/4363/files/NK-Rustic_Canyon-4.jpg?v=1757976314"
+           alt="Santa Monica Canyon, Nickey Kehoe"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+
+  <!-- Row 3: More Brentwood -->
+  <div class="gallery gallery-2" style="gap:12px; margin-top: 12px;">
+    <div class="img-wrap img-wide">
+      <img src="https://cdn.shopify.com/s/files/1/1713/4363/files/DArnold_021026_NickeyKehoe_17734_web.jpg?v=1777053482"
+           alt="Brentwood Residence, Nickey Kehoe"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-wide">
+      <img src="https://cdn.shopify.com/s/files/1/1713/4363/files/NK-Rustic_Canyon-2.jpg?v=1757976309"
+           alt="Santa Monica Canyon, Nickey Kehoe"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+  <p class="img-label" style="margin-top:12px;">Brentwood Residence &amp; Santa Monica Canyon &nbsp;·&nbsp; Nickey Kehoe &nbsp;·&nbsp; Photography: D. Arnold</p>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 06 STUDIO KO                           -->
+<!-- Paris · Marrakech · London             -->
+<!-- ═══════════════════════════════════════ -->
+<section class="firm" id="studio-ko" style="background: var(--cream);">
+  <div class="firm-header">
+    <div class="firm-num">06</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://www.studioko.fr" target="_blank">Studio KO</a></h2>
+      <p class="firm-location">Paris · Marrakech · London &nbsp;·&nbsp; Karl Fournier &amp; Olivier Marty</p>
+      <p class="firm-desc">Karl Fournier and Olivier Marty founded Studio KO in Paris in 1999 and have since become one of the most internationally admired practices of their generation — moving between rigorous Moroccan villas, London hospitality (Chiltern Firehouse), the Yves Saint Laurent Museum in Marrakech, boutiques for Aesop and Ami, and private residences across France, Morocco, Corsica, and Los Angeles. Their work holds a generative tension: "constantly torn between our desire for extremely pared-down, pure things and a more decorative, busy aesthetic." The common denominator is that their buildings are always completely in tune with their environment — materials, handicraft, landscape. Multiple features in World of Interiors.</p>
+      <span class="firm-tag">Architecture · Interior Design · Paris · Marrakech</span>
+    </div>
+  </div>
+
+  <!-- Row 1: header wide + Tangier living room -->
+  <div class="gallery gallery-2" style="gap:12px; margin-bottom:12px;">
+    <div class="img-wrap img-wide">
+      <img src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/11/studiokoheader4.jpg"
+           alt="Studio KO — Exterior"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-wide">
+      <img src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/10/studio_ko_livingroom.jpg"
+           alt="Pierre Bergé Home, Tangier — Living Room, Studio KO"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+
+  <!-- Row 2: three villas -->
+  <div class="gallery gallery-3" style="gap:12px; margin-bottom:12px;">
+    <div class="img-wrap img-tall">
+      <img src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/10/GHouse5-e1415034327109.jpg"
+           alt="Luberon House, France — Living Room, Studio KO"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/11/koslide1.jpg"
+           alt="Villa K, Tagadert, Morocco — Studio KO"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/11/koslide2.jpg"
+           alt="Villa E, Ourika, Morocco — Studio KO"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+
+  <!-- Row 3: Tagadert study + Luberon pool -->
+  <div class="gallery gallery-2" style="gap:12px;">
+    <div class="img-wrap img-wide">
+      <img src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/10/studioko_office.jpg"
+           alt="Tagadert Villa — Study and Bedroom, Studio KO"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-wide">
+      <img src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/10/studioko_pool2.jpg"
+           alt="Luberon House — Pool Terrace, Studio KO"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+  <p class="img-label" style="margin-top:12px;">Luberon, France &nbsp;·&nbsp; Villa K, Tagadert &nbsp;·&nbsp; Villa E, Ourika &nbsp;·&nbsp; Pierre Bergé Home, Tangier &nbsp;·&nbsp; Studio KO &nbsp;·&nbsp; Via 1stDibs Introspective</p>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 07 ARENT & PYKE                        -->
+<!-- Sydney · Melbourne                     -->
+<!-- ═══════════════════════════════════════ -->
+<section class="firm" id="arent-pyke">
+  <div class="firm-header">
+    <div class="firm-num">07</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://arentpyke.com" target="_blank">Arent&amp;Pyke</a></h2>
+      <p class="firm-location">Sydney &amp; Melbourne, Australia &nbsp;·&nbsp; Juliette Arent &amp; Sarah-Jane Pyke</p>
+      <p class="firm-desc">Juliette Arent and Sarah-Jane Pyke are among the most decorated interior designers in Australia and have become genuine international figures — regulars in World of Interiors, Vogue Living, and Elle Decoration, with a monograph published by Thames &amp; Hudson. Their work is defined by an extraordinary layering of material, art, object, and memory: rooms that feel genuinely inhabited by specific people with specific pasts. Vintage finds and design classics appear alongside custom fabrication; color is used with restraint and confidence simultaneously. Their bathrooms are benchmark work — arched stone frames, freestanding baths, joinery floating above stone floors, custom marble islands. Nothing accidental; everything thought through in minute detail.</p>
+      <span class="firm-tag">Interior Design · Custom Fabrication · Art Curation</span>
+    </div>
+  </div>
+
+  <!-- Bradleys Head House (Mosman NSW) -->
+  <div class="gallery gallery-3" style="gap:12px; margin-bottom:12px;">
+    <div class="img-wrap img-tall">
+      <img src="https://arentpyke.com/media/cache/5b150ef22a292d82ff93507d6bab7888cf43ac63.jpg"
+           alt="Bradleys Head House — Arent&amp;Pyke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img src="https://arentpyke.com/media/cache/1749fb4071ad1f2682f35d860aa3571bf1ea09ea.jpg"
+           alt="Bradleys Head House — Arent&amp;Pyke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img src="https://arentpyke.com/media/cache/baa93df6916181597ee06999dc1aaa2de91ea5ed.jpg"
+           alt="Bradleys Head House — Arched Ensuite, Arent&amp;Pyke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+  <div class="gallery gallery-2" style="gap:12px; margin-bottom:12px;">
+    <div class="img-wrap img-wide">
+      <img src="https://arentpyke.com/media/cache/83db6cdf5d4feb6596e75aa735fcc84900d78d6d.jpg"
+           alt="Bradleys Head House — Living Room, Arent&amp;Pyke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-wide">
+      <img src="https://arentpyke.com/media/cache/fcb973902024141b3364db6cfa257c7c7276cfb0.jpg"
+           alt="Bradleys Head House — Kitchen, Arent&amp;Pyke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+  <p class="img-label" style="margin-bottom:28px;">Bradleys Head House, Mosman NSW &nbsp;·&nbsp; Architecture: TKD Architects &nbsp;·&nbsp; Photography: Anson Smart</p>
+
+  <!-- Golden Light (Lower North Shore Sydney) -->
+  <div class="gallery gallery-3" style="gap:12px; margin-bottom:12px;">
+    <div class="img-wrap img-tall">
+      <img src="https://arentpyke.com/media/cache/52d70842d0b0fe7ba0490e3684ec5fb180840133.jpg"
+           alt="Golden Light — Arent&amp;Pyke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img src="https://arentpyke.com/media/cache/b82058d9d86868acf8e5b8618f7893ed2be4a0fb.jpg"
+           alt="Golden Light — Marigold Sitting Room, Arent&amp;Pyke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img src="https://arentpyke.com/media/cache/8022fb508f06c4d91cc7c7d91e430d1100351252.jpg"
+           alt="Golden Light — Dining, Arent&amp;Pyke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+  <div class="gallery gallery-2" style="gap:12px;">
+    <div class="img-wrap img-wide">
+      <img src="https://arentpyke.com/media/cache/40638869872d7970c3e06764cc555baf10b0a8e0.jpg"
+           alt="Golden Light — Primary Suite, Arent&amp;Pyke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-wide">
+      <img src="https://arentpyke.com/media/cache/534c0fffb5eba2841053d41b89f91e04ad7e1efe.jpg"
+           alt="Golden Light — Interior, Arent&amp;Pyke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+  <p class="img-label" style="margin-top:12px;">Golden Light, Lower North Shore, Sydney &nbsp;·&nbsp; Photography: Anson Smart &nbsp;·&nbsp; Styling: Jack Milenkovic</p>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 08 STUDIOILSE                          -->
+<!-- Ilse Crawford · London · International -->
+<!-- ═══════════════════════════════════════ -->
+<section class="firm" id="studioilse" style="background: var(--cream);">
+  <div class="firm-header">
+    <div class="firm-num">08</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://www.studioilse.com" target="_blank">Studioilse</a></h2>
+      <p class="firm-location">London &nbsp;·&nbsp; Ilse Crawford</p>
+      <p class="firm-desc">Ilse Crawford is among the most original design thinkers of her generation — a studio that consistently asks what spaces are for, how they feel to inhabit, and what it means to be human within them. The work moves across scales and typologies: private homes, floating residences, rural coaching inns, Stockholm guest houses. What binds them is a commitment to sensory intelligence over visual novelty, and a deep literacy in materials, craft, and the domestic arts. She is equally at home with hand-stitched textiles and structural timber as with contemporary furniture or hand-painted antiques. Old and new in conversation, never in conflict.</p>
+      <span class="firm-tag">Interior Design · Architecture · Strategy</span>
+    </div>
+  </div>
+
+  <!-- ── PROJECT 1: CHALET, SWITZERLAND 2015 ── -->
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Chalet, Switzerland</h3>
+      <p class="project-meta">Switzerland &nbsp;·&nbsp; 2015 &nbsp;·&nbsp; Photography: Felix Odell</p>
+      <p class="project-desc">A family mountain home buried deep in the Swiss Alps. Working from a warm palette of natural materials — pitched timber, stone, hand-stitched textiles — Studioilse created a chalet that can adapt from festive gathering to quiet hibernation. A hand-painted botanical chest in the bedroom demonstrates the studio's belief in the singular object: one piece that anchors an entire room and earns its place through character, not price.</p>
+    </div>
+
+    <!-- Row 1: portrait hero + landscape pair -->
+    <div class="gallery gallery-2" style="gap:12px; margin-bottom:12px;">
+      <div class="img-wrap img-tall">
+        <img src="https://www.studioilse.com/wp-content/uploads/2020/04/150407_ChaletFontanet_Nikon1_-41-5x7.jpg"
+             alt="Chalet, Switzerland — Living Room, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div style="display:grid; grid-template-rows:1fr 1fr; gap:12px;">
+        <div class="img-wrap">
+          <img src="https://www.studioilse.com/wp-content/uploads/2020/04/150408_CF_Day2_0019.jpg"
+               alt="Chalet, Switzerland — Interior, Studioilse"
+               onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+        </div>
+        <div class="img-wrap">
+          <img src="https://www.studioilse.com/wp-content/uploads/2020/04/150407_ChaletFontanet1_0390-5x4.jpg"
+               alt="Chalet, Switzerland — Interior, Studioilse"
+               onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2: 3-up details -->
+    <div class="gallery gallery-3" style="gap:12px;">
+      <div class="img-wrap img-sq">
+        <img src="https://www.studioilse.com/wp-content/uploads/2020/04/150407_ChaletFontanet1_0071b.jpg"
+             alt="Chalet, Switzerland — Botanical Chest, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-sq">
+        <img src="https://www.studioilse.com/wp-content/uploads/2020/04/kitchen_01x-scaled.jpg"
+             alt="Chalet, Switzerland — Kitchen, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-sq">
+        <img src="https://www.studioilse.com/wp-content/uploads/2020/04/150407_ChaletFontanet1_0049.jpg"
+             alt="Chalet, Switzerland — Detail, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+
+    <!-- Row 3: wide -->
+    <div class="gallery gallery-2" style="gap:12px; margin-top:12px;">
+      <div class="img-wrap img-wide">
+        <img src="https://www.studioilse.com/wp-content/uploads/2020/04/150407_ChaletFontanet1_0182.jpg"
+             alt="Chalet, Switzerland — Bedroom, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img src="https://www.studioilse.com/wp-content/uploads/2020/04/150408_CF_Day2_0069.jpg"
+             alt="Chalet, Switzerland — Detail, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">Chalet, Swiss Alps, 2015 &nbsp;·&nbsp; Photography: Felix Odell &nbsp;·&nbsp; <a href="https://www.studioilse.com/projects/chalet/" target="_blank" style="color:var(--accent); text-decoration:none;">studioilse.com →</a></p>
+  </div>
+
+  <!-- ── PROJECT 2: SHEMARA MOTOR YACHT, 2015 ── -->
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Shemara, Motor Yacht</h3>
+      <p class="project-meta">Mallorca &nbsp;·&nbsp; 2015 &nbsp;·&nbsp; Photography: Casper Sejersen</p>
+      <p class="project-desc">The refurbishment of a historic motor yacht originally built in 1938. Studioilse's brief was to create a floating family home that made sense for both owners and crew — evoking the glamorous spirit of the boat's extraordinary history without becoming a slave to it. The result is a yacht interior that feels genuinely domestic: proper rooms, not cabins. The Shemara's story includes the Titanic; its interior should acknowledge history without pastiche.</p>
+    </div>
+
+    <!-- Row 1: landscape hero + portrait pair -->
+    <div class="gallery gallery-2" style="gap:12px; margin-bottom:12px;">
+      <div class="img-wrap img-wide">
+        <img src="https://www.studioilse.com/wp-content/uploads/2020/04/Jeff-Brown-10328-1-5x3.jpg"
+             alt="Shemara Motor Yacht — Exterior, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img src="https://www.studioilse.com/wp-content/uploads/2020/04/Jeff-Brown-19890-scaled.jpg"
+             alt="Shemara Motor Yacht — Interior, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+
+    <!-- Row 2: 3-up cabin rooms -->
+    <div class="gallery gallery-3" style="gap:12px; margin-bottom:12px;">
+      <div class="img-wrap img-tall">
+        <img src="https://www.studioilse.com/wp-content/uploads/2020/04/Studio_Ilse_Palma_100914-_Room_01_006s-scaled.jpg"
+             alt="Shemara — Master Cabin, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-tall">
+        <img src="https://www.studioilse.com/wp-content/uploads/2020/04/Studio_Ilse_Palma_100914-_Room_09_323-1.jpg"
+             alt="Shemara — Sitting Room, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-tall">
+        <img src="https://www.studioilse.com/wp-content/uploads/2020/04/Studio_Ilse_Palma_100914-_Room_12_420-scaled.jpg"
+             alt="Shemara — Cabin, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+
+    <!-- Row 3: dining + detail -->
+    <div class="gallery gallery-2" style="gap:12px;">
+      <div class="img-wrap img-wide">
+        <img src="https://www.studioilse.com/wp-content/uploads/2020/04/Studio_Ilse_Palma_100914-_Room_03_161.jpg"
+             alt="Shemara — Dining Room, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img src="https://www.studioilse.com/wp-content/uploads/2020/04/Studio_Ilse_Palma_110914_Room_15_039.jpg"
+             alt="Shemara — Detail, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">Shemara, Motor Yacht, 2015 &nbsp;·&nbsp; Photography: Casper Sejersen &nbsp;·&nbsp; <a href="https://www.studioilse.com/projects/shemara-yacht/" target="_blank" style="color:var(--accent); text-decoration:none;">studioilse.com →</a></p>
+  </div>
+
+  <!-- ── PROJECT 3: ETT HEM NUMBER 4, STOCKHOLM 2022 ── -->
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Ett Hem, Number 4</h3>
+      <p class="project-meta">Stockholm, Sweden &nbsp;·&nbsp; 2022 &nbsp;·&nbsp; Photography: Magnus Marding</p>
+      <p class="project-desc">A decade after Studioilse helped define a new language of hospitality with the original Ett Hem, they returned to expand the Stockholm guest house into the house next door. The same values, a new building: intimate and lively, domestic and public at once. Generous light from large windows opens onto rooftop views. Food and the local supply chain are foregrounded. The rooms are expansive but never grand — they feel like somewhere you might actually want to live.</p>
+    </div>
+
+    <!-- Row 1: two portrait heroes -->
+    <div class="gallery gallery-2" style="gap:12px; margin-bottom:12px;">
+      <div class="img-wrap img-tall">
+        <img src="https://www.studioilse.com/wp-content/uploads/2022/09/marding3731-5x7.jpg"
+             alt="Ett Hem Number 4, Stockholm — Interior, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-tall">
+        <img src="https://www.studioilse.com/wp-content/uploads/2022/09/marding3737-5x7.jpg"
+             alt="Ett Hem Number 4, Stockholm — Interior, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+
+    <!-- Row 2: 3 wide rooms -->
+    <div class="gallery gallery-3" style="gap:12px; margin-bottom:12px;">
+      <div class="img-wrap img-sq">
+        <img src="https://www.studioilse.com/wp-content/uploads/2022/09/marding3725-scaled.jpg"
+             alt="Ett Hem Number 4 — Room, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-sq">
+        <img src="https://www.studioilse.com/wp-content/uploads/2022/09/marding3748-scaled.jpg"
+             alt="Ett Hem Number 4 — Room, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-sq">
+        <img src="https://www.studioilse.com/wp-content/uploads/2022/09/marding3744-scaled.jpg"
+             alt="Ett Hem Number 4 — Detail, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+
+    <!-- Row 3: landscape pair -->
+    <div class="gallery gallery-2" style="gap:12px;">
+      <div class="img-wrap img-wide">
+        <img src="https://www.studioilse.com/wp-content/uploads/2022/09/marding3736.jpg"
+             alt="Ett Hem Number 4 — Dining, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img src="https://www.studioilse.com/wp-content/uploads/2022/09/marding3729-scaled.jpg"
+             alt="Ett Hem Number 4 — Interior, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">Ett Hem, Number 4, Stockholm, 2022 &nbsp;·&nbsp; Photography: Magnus Marding &nbsp;·&nbsp; <a href="https://www.studioilse.com/projects/ett-hem-number-4-stockholm-2022/" target="_blank" style="color:var(--accent); text-decoration:none;">studioilse.com →</a></p>
+  </div>
+
+  <!-- ── PROJECT 4: THE OLDE BELL INN, BERKSHIRE 2007 ── -->
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">The Olde Bell Inn</h3>
+      <p class="project-meta">Hurley, Berkshire &nbsp;·&nbsp; 2007 &nbsp;·&nbsp; Photography: Lisa Cohen</p>
+      <p class="project-desc">A benchmark project: the contemporary reinterpretation of a traditional English coaching inn. Forty-seven bedrooms, a dining room, bar, malt house, and meadow garden — all reinterpreted using British materials, furniture, and local produce. The result is a rural hospitality model rooted in local life, not heritage pastiche. Old and new placed confidently side by side: exposed beams meet contemporary upholstery; antique mirrors hold company with clean-lined lighting. Craft, not costume.</p>
+    </div>
+
+    <!-- Row 1: wide hero -->
+    <div class="gallery" style="grid-template-columns: 2fr 1fr; gap:12px; margin-bottom:12px;">
+      <div class="img-wrap img-wide">
+        <img src="https://www.studioilse.com/wp-content/uploads/2020/04/CH03_inns_137-5x3.jpg"
+             alt="The Olde Bell Inn — Bar, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img src="https://www.studioilse.com/wp-content/uploads/2020/04/Hilton-OB-Inn-420h-5x6.jpg"
+             alt="The Olde Bell Inn — Bedroom, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+
+    <!-- Row 2: 3-up -->
+    <div class="gallery gallery-3" style="gap:12px; margin-bottom:12px;">
+      <div class="img-wrap img-sq">
+        <img src="https://www.studioilse.com/wp-content/uploads/2020/04/Inn-mood-wall-scaled.jpg"
+             alt="The Olde Bell Inn — Mood Wall, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-sq">
+        <img src="https://www.studioilse.com/wp-content/uploads/2020/04/bar-ent-scaled.jpg"
+             alt="The Olde Bell Inn — Bar Entrance, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-sq">
+        <img src="https://www.studioilse.com/wp-content/uploads/2020/04/bar-still-life-scaled.jpg"
+             alt="The Olde Bell Inn — Bar Still Life, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+
+    <!-- Row 3: dining + garden -->
+    <div class="gallery gallery-2" style="gap:12px;">
+      <div class="img-wrap img-wide">
+        <img src="https://www.studioilse.com/wp-content/uploads/2020/04/feasted-OB-Inn-464lo.jpg"
+             alt="The Olde Bell Inn — Dining, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img src="https://www.studioilse.com/wp-content/uploads/2020/04/olde-bell-garden.jpg"
+             alt="The Olde Bell Inn — Garden, Studioilse"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">The Olde Bell Inn, Hurley, Berkshire, 2007 &nbsp;·&nbsp; Photography: Lisa Cohen &nbsp;·&nbsp; <a href="https://www.studioilse.com/projects/the-olde-bell-inn/" target="_blank" style="color:var(--accent); text-decoration:none;">studioilse.com →</a></p>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 09 ROSE UNIACKE                        -->
+<!-- London · Pimlico                       -->
+<!-- ═══════════════════════════════════════ -->
+<section class="firm" id="rose-uniacke">
+  <div class="firm-header">
+    <div class="firm-num">09</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://www.roseuniacke.com/interiors" target="_blank">Rose Uniacke</a></h2>
+      <p class="firm-location">London, Pimlico &nbsp;·&nbsp; roseuniacke.com</p>
+      <p class="firm-desc">Rose Uniacke is among the most consequential British interior designers of the last twenty years — a figure who has largely redefined what domestic elegance looks like in the contemporary era. Her signature is "sumptuous minimalism": period rooms approached with a pared-back choreography, where antiques from antiquity to the 20th century live alongside bespoke contemporary pieces and textiles. Light and proportion are paramount. Art — often by female artists working in textile, ceramics, and paper — is integral, not decorative afterthought. Her own fabric and paint lines extend the practice into a complete material ecosystem. Recent work includes London townhouses, a New York hotel (San Vicente West Village), the Belmond Royal Scotsman, and her personal Coach House — photographed by Francois Halard for World of Interiors.</p>
+      <span class="firm-tag">Interior Design · Fabric · Paint · Antiques</span>
+    </div>
+  </div>
+
+  <!-- ── San Vicente West Village (New York) ── -->
+  <div class="project-card">
+    <div class="img-wrap img-tall">
+      <img src="https://www.roseuniacke.com/media/contentmanager/content/interiors/Ph__Simon_Upton_-_SU1249_RU_SV_Drawing14_Hero_Revision3.jpg"
+           alt="San Vicente West Village, New York — Rose Uniacke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="project-card-text">
+      <p class="project-card-eyebrow">San Vicente West Village &nbsp;·&nbsp; New York &nbsp;·&nbsp; Photography: Simon Upton</p>
+      <h3 class="project-card-title">A Place with a Colorful History</h3>
+      <p class="project-card-body">A comprehensive interior renovation of a 1908 redbrick building in Manhattan's West Village — once part of the Jane Hotel, originally lodgings for visiting sailors. Rose Uniacke transformed it into a members' club and hotel for Jeff Klein: a quiet, layered sophistication grounded in the building's bones. As written in Architectural Digest: "Walking into a room by Rose feels like walking into the best version of the home you wish you owned."</p>
+      <a class="project-card-link" href="https://www.roseuniacke.com/san-vicente-west-village" target="_blank">View Project →</a>
+    </div>
+  </div>
+
+  <!-- ── London Townhouse + Coach House (side by side) ── -->
+  <div class="gallery gallery-2" style="gap:12px; margin-bottom:12px;">
+    <div class="img-wrap img-wide">
+      <img src="https://www.roseuniacke.com/media/contentmanager/content/interiors/SU1129_RU_PelhamPl_MasterBed1_hero_copy.jpg"
+           alt="London Townhouse — Rose Uniacke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-wide">
+      <img src="https://www.roseuniacke.com/media/contentmanager/content/interiors/1923-12.jpg"
+           alt="Coach House — Rose Uniacke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+  <p class="img-label" style="margin-bottom:12px;">Left: London Townhouse (Georgian, Pelham Place) &nbsp;·&nbsp; Right: Coach House (Photography: Francois Halard for World of Interiors)</p>
+
+  <!-- ── Clapham House + Notting Hill Villa (side by side) ── -->
+  <div class="gallery gallery-2" style="gap:12px; margin-bottom:12px;">
+    <div class="img-wrap img-wide">
+      <img src="https://www.roseuniacke.com/media/contentmanager/content/interiors/Clapham_LivingRoom_banner.jpg"
+           alt="Clapham House — Rose Uniacke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-wide">
+      <img src="https://www.roseuniacke.com/media/wysiwyg/Interiors_Scroll_Slider/notting_hill_villa/HPA_12_1_.png"
+           alt="Notting Hill Villa — Rose Uniacke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+  <p class="img-label" style="margin-bottom:12px;">Left: Clapham House — "sumptuous minimalism," featured World of Interiors Oct 2022 &nbsp;·&nbsp; Right: Notting Hill Villa — a masterclass in white</p>
+
+  <!-- ── Belmond Royal Scotsman ── -->
+  <div class="project-card" style="flex-direction: row-reverse;">
+    <div class="img-wrap img-tall">
+      <img src="https://www.roseuniacke.com/media/contentmanager/content/interiors/image%202.jpeg"
+           alt="Belmond Royal Scotsman — Rose Uniacke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="project-card-text">
+      <p class="project-card-eyebrow">Belmond Royal Scotsman &nbsp;·&nbsp; Scotland</p>
+      <h3 class="project-card-title">Edwardian Elegance Reimagined</h3>
+      <p class="project-card-body">A luxury sleeper train running through the Scottish Highlands, designed to evoke the comfort and pace of travel in a former era — without historical recreation. The cabins extend a theme of country house comfort: mahogany marquetry, tweeds from Holland &amp; Sherry and Bute Mills, botanical watercolours by Mackintosh. Materials drawn from gorse and heather — purples, deep blues, greens, ambers. Familiar landscape encoded in fabric and finish.</p>
+      <a class="project-card-link" href="https://www.roseuniacke.com/the-belmond-royal-scotsman" target="_blank">View Project →</a>
+    </div>
+  </div>
+
+  <div style="margin-top:32px; padding-top:24px; border-top:1px solid var(--rule);">
+    <p style="font-size:13px; line-height:1.8; color:#5a524b; max-width:640px;">Rose Uniacke's portfolio spans private homes, commercial hospitality, and institutional projects. Her Pimlico showroom carries antiques, her own fabric and paint collections, and bespoke furniture editions. Published monograph: <em>Rose Uniacke At Work</em> (Rizzoli, 2023).</p>
+    <a href="https://www.roseuniacke.com/interiors" target="_blank" style="display:inline-block; margin-top:16px; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent); padding-bottom:2px;">View All Interiors at roseuniacke.com →</a>
+  </div>
+
+</section>
+
+
+<!-- COLOPHON -->
+<footer class="colophon">
+  <p>Interior Design Guide &nbsp;·&nbsp; Church Renovation Reference &amp; Beyond</p>
+  <p style="margin-top:8px;">Katie Martinez Design &nbsp;·&nbsp; Mother Studio &nbsp;·&nbsp; Reath Design &nbsp;·&nbsp; Commune Design &nbsp;·&nbsp; Nickey Kehoe</p>
+  <p>Studio KO &nbsp;·&nbsp; Arent&amp;Pyke &nbsp;·&nbsp; Studioilse &nbsp;·&nbsp; Rose Uniacke</p>
+  <p style="margin-top:20px; font-size:10px; color: #c0b8b0;">All images remain property of their respective studios and photographers. Compiled for reference purposes only.</p>
+</footer>
+
+</body>
+</html>
