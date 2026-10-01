@@ -384,124 +384,296 @@
       .project-card { grid-template-columns: 1fr; }
       .project-card-text { padding: 32px 24px; }
     }
+
+    /* ── THEME GROUPS ── */
+    .theme {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 72px 60px 8px;
+      border-top: 1px solid var(--rule);
+    }
+    .theme-kicker {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: 14px;
+    }
+    .theme-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(32px, 4.2vw, 48px);
+      line-height: 1.08;
+      margin-bottom: 14px;
+    }
+    .theme-intro {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.45;
+      color: var(--accent);
+      max-width: 640px;
+    }
+    a.toc-theme {
+      grid-column: 1 / -1;
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 20px;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 28px 0 4px;
+    }
+    a.toc-theme:hover { color: var(--ink); }
+
+    /* Later entries share the firm header, so the merged list reads as one. */
+    .studio-section {
+      padding: 80px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--rule);
+    }
+    .studio-header {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-areas:
+        "num name"
+        "num loc";
+      column-gap: 48px;
+      row-gap: 6px;
+      align-items: start;
+      margin-bottom: 48px;
+    }
+    .studio-eyebrow {
+      grid-area: num;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--rule);
+      padding-top: 4px;
+    }
+    .studio-name {
+      grid-area: name;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 400;
+      line-height: 1.1;
+    }
+    .studio-location {
+      grid-area: loc;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--taupe);
+    }
+    #products-makers .studio-eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--taupe);
+      font-weight: 300;
+      padding-top: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .theme { padding: 48px 24px 4px; }
+      .studio-section { padding: 60px 24px; }
+      .studio-header {
+        grid-template-columns: 1fr;
+        grid-template-areas: "num" "name" "loc";
+        row-gap: 0;
+      }
+      .studio-eyebrow { font-size: 40px; margin-bottom: 8px; }
+      #products-makers .studio-eyebrow { font-size: 10px; margin-bottom: 0; }
+    }
   </style>
 </head>
 <body>
 
-<!-- COVER -->
 <section class="cover">
   <p class="cover-eyebrow">Studio Reference</p>
   <h1 class="cover-title">Interior Design<br/><em>Guide</em></h1>
   <div class="cover-rule"></div>
-  <p class="cover-sub">Twenty studios — bespoke, quiet, collected. Materials with soul, spaces that feel lived in. A working reference for interiors of character and craft.</p>
-  <p class="cover-count">20 Studios &nbsp;·&nbsp; Homes · Hotels · Yacht · Inns</p>
+  <p class="cover-sub">Thirty-three studios — bespoke, quiet, collected. Materials with soul, spaces that feel lived in. A working reference for interiors of character and craft.</p>
+  <p class="cover-count">33 Studios &nbsp;·&nbsp; Homes · Hotels · Yacht · Inns</p>
 </section>
 
-<!-- TABLE OF CONTENTS -->
 <section style="background: var(--warm-white); border-bottom: 1px solid var(--rule);">
   <div class="toc">
     <p class="toc-header">Studios &amp; Makers</p>
-
-    <a class="toc-item" href="#katie-martinez">
+    <a class="toc-theme" href="#theme-farmhouse">New England &amp; American Farmhouse Craft</a>
+    <a class="toc-item" href="#hendricks-churchill">
       <span class="toc-num">01</span>
+      <span class="toc-name">Hendricks Churchill</span>
+      <span class="toc-loc">Sharon, CT</span>
+    </a>
+    <a class="toc-item" href="#workstead">
+      <span class="toc-num">02</span>
+      <span class="toc-name">Workstead</span>
+      <span class="toc-loc">Brooklyn · Charleston · Salisbury, CT</span>
+    </a>
+    <a class="toc-item" href="#jersey-ice-cream">
+      <span class="toc-num">03</span>
+      <span class="toc-name">Jersey Ice Cream Co.</span>
+      <span class="toc-loc">Catskills · Hudson Valley</span>
+    </a>
+    <a class="toc-item" href="#heidi-caillier">
+      <span class="toc-num">04</span>
+      <span class="toc-name">Heidi Caillier Design</span>
+      <span class="toc-loc">Seattle</span>
+    </a>
+    <a class="toc-item" href="#katie-martinez">
+      <span class="toc-num">05</span>
       <span class="toc-name">Katie Martinez Design</span>
       <span class="toc-loc">San Francisco · New England</span>
     </a>
     <a class="toc-item" href="#mother-studio">
-      <span class="toc-num">02</span>
+      <span class="toc-num">06</span>
       <span class="toc-name">Mother Studio</span>
       <span class="toc-loc">Asheville, NC</span>
     </a>
-    <a class="toc-item" href="#reath-design">
-      <span class="toc-num">03</span>
-      <span class="toc-name">Reath Design</span>
-      <span class="toc-loc">Los Angeles, CA</span>
-    </a>
-    <a class="toc-item" href="#commune-design">
-      <span class="toc-num">04</span>
-      <span class="toc-name">Commune Design</span>
-      <span class="toc-loc">Los Angeles, CA</span>
-    </a>
-    <a class="toc-item" href="#nickey-kehoe">
-      <span class="toc-num">05</span>
-      <span class="toc-name">Nickey Kehoe</span>
-      <span class="toc-loc">Los Angeles · New York</span>
-    </a>
-    <a class="toc-item" href="#studio-ko">
-      <span class="toc-num">06</span>
-      <span class="toc-name">Studio KO</span>
-      <span class="toc-loc">Paris · Marrakech · London</span>
-    </a>
-    <a class="toc-item" href="#arent-pyke">
+    <a class="toc-theme" href="#theme-salvage">Salvage, Patina &amp; Adaptive Reuse</a>
+    <a class="toc-item" href="#retrouvius">
       <span class="toc-num">07</span>
-      <span class="toc-name">Arent &amp; Pyke</span>
-      <span class="toc-loc">Sydney · Melbourne</span>
+      <span class="toc-name">Retrouvius</span>
+      <span class="toc-loc">London</span>
     </a>
-    <a class="toc-item" href="#studioilse">
+    <a class="toc-item" href="#tuckey-design">
       <span class="toc-num">08</span>
+      <span class="toc-name">Tuckey Design Studio</span>
+      <span class="toc-loc">London · Andermatt</span>
+    </a>
+    <a class="toc-item" href="#roman-williams">
+      <span class="toc-num">09</span>
+      <span class="toc-name">Roman &amp; Williams</span>
+      <span class="toc-loc">New York</span>
+    </a>
+    <a class="toc-item" href="#green-river">
+      <span class="toc-num">10</span>
+      <span class="toc-name">Green River Project</span>
+      <span class="toc-loc">Brooklyn</span>
+    </a>
+    <a class="toc-theme" href="#theme-restraint">Warm Restraint &amp; Quiet Materiality</a>
+    <a class="toc-item" href="#studioilse">
+      <span class="toc-num">11</span>
       <span class="toc-name">Studioilse</span>
       <span class="toc-loc">London · International</span>
     </a>
     <a class="toc-item" href="#rose-uniacke">
-      <span class="toc-num">09</span>
+      <span class="toc-num">12</span>
       <span class="toc-name">Rose Uniacke</span>
       <span class="toc-loc">London · Pimlico</span>
     </a>
-    <a class="toc-item" href="#ben-pentreath">
-      <span class="toc-num">10</span>
-      <span class="toc-name">Ben Pentreath</span>
-      <span class="toc-loc">London · Dorset</span>
-    </a>
-    <a class="toc-item" href="#grenney-greig">
-      <span class="toc-num">11</span>
-      <span class="toc-name">Grenney Greig</span>
-      <span class="toc-loc">London · Tangier</span>
-    </a>
-    <a class="toc-item" href="#studio-peregalli">
-      <span class="toc-num">12</span>
-      <span class="toc-name">Studio Peregalli</span>
-      <span class="toc-loc">Milan</span>
-    </a>
-    <a class="toc-item" href="#beata-heuman">
-      <span class="toc-num">13</span>
-      <span class="toc-name">Beata Heuman</span>
-      <span class="toc-loc">London</span>
-    </a>
     <a class="toc-item" href="#axel-vervoordt">
-      <span class="toc-num">14</span>
+      <span class="toc-num">13</span>
       <span class="toc-name">Axel Vervoordt</span>
       <span class="toc-loc">Antwerp · Wijnegem</span>
     </a>
-    
-    <a class="toc-item" href="#ken-fulk">
-      <span class="toc-num">15</span>
-      <span class="toc-name">Ken Fulk</span>
-      <span class="toc-loc">San Francisco · Cape Cod</span>
+    <a class="toc-item" href="#atelier-vime">
+      <span class="toc-num">14</span>
+      <span class="toc-name">Atelier Vime</span>
+      <span class="toc-loc">Vallabrègues, Provence</span>
     </a>
     <a class="toc-item" href="#vincent-van-duysen">
-      <span class="toc-num">16</span>
+      <span class="toc-num">15</span>
       <span class="toc-name">Vincent Van Duysen</span>
       <span class="toc-loc">Antwerp</span>
     </a>
-    <a class="toc-item" href="#joseph-dirand">
+    <a class="toc-theme" href="#theme-color">Collected Color &amp; Pattern</a>
+    <a class="toc-item" href="#reath-design">
+      <span class="toc-num">16</span>
+      <span class="toc-name">Reath Design</span>
+      <span class="toc-loc">Los Angeles, CA</span>
+    </a>
+    <a class="toc-item" href="#commune-design">
       <span class="toc-num">17</span>
-      <span class="toc-name">Joseph Dirand</span>
-      <span class="toc-loc">Paris</span>
+      <span class="toc-name">Commune Design</span>
+      <span class="toc-loc">Los Angeles, CA</span>
     </a>
-    <a class="toc-item" href="#roman-williams">
+    <a class="toc-item" href="#nickey-kehoe">
       <span class="toc-num">18</span>
-      <span class="toc-name">Roman &amp; Williams</span>
-      <span class="toc-loc">New York</span>
+      <span class="toc-name">Nickey Kehoe</span>
+      <span class="toc-loc">Los Angeles · New York</span>
     </a>
-    <a class="toc-item" href="#neri-hu">
+    <a class="toc-item" href="#beata-heuman">
       <span class="toc-num">19</span>
-      <span class="toc-name">Neri &amp; Hu</span>
-      <span class="toc-loc">Shanghai</span>
+      <span class="toc-name">Beata Heuman</span>
+      <span class="toc-loc">London</span>
     </a>
     <a class="toc-item" href="#studio-ashby">
       <span class="toc-num">20</span>
       <span class="toc-name">Studio Ashby</span>
       <span class="toc-loc">London</span>
+    </a>
+    <a class="toc-item" href="#arent-pyke">
+      <span class="toc-num">21</span>
+      <span class="toc-name">Arent &amp; Pyke</span>
+      <span class="toc-loc">Sydney · Melbourne</span>
+    </a>
+    <a class="toc-item" href="#studio-valle">
+      <span class="toc-num">22</span>
+      <span class="toc-name">Studio Valle de Valle</span>
+      <span class="toc-loc">New York</span>
+    </a>
+    <a class="toc-theme" href="#theme-historic">Maximalist &amp; Historic Layering</a>
+    <a class="toc-item" href="#ben-pentreath">
+      <span class="toc-num">23</span>
+      <span class="toc-name">Ben Pentreath</span>
+      <span class="toc-loc">London · Dorset</span>
+    </a>
+    <a class="toc-item" href="#max-rollitt">
+      <span class="toc-num">24</span>
+      <span class="toc-name">Max Rollitt</span>
+      <span class="toc-loc">Hampshire, UK</span>
+    </a>
+    <a class="toc-item" href="#grenney-greig">
+      <span class="toc-num">25</span>
+      <span class="toc-name">Grenney Greig</span>
+      <span class="toc-loc">London · Tangier</span>
+    </a>
+    <a class="toc-item" href="#studio-peregalli">
+      <span class="toc-num">26</span>
+      <span class="toc-name">Studio Peregalli</span>
+      <span class="toc-loc">Milan</span>
+    </a>
+    <a class="toc-item" href="#ken-fulk">
+      <span class="toc-num">27</span>
+      <span class="toc-name">Ken Fulk</span>
+      <span class="toc-loc">San Francisco · Cape Cod</span>
+    </a>
+    <a class="toc-theme" href="#theme-architecture">Architecture-led</a>
+    <a class="toc-item" href="#studio-ko">
+      <span class="toc-num">28</span>
+      <span class="toc-name">Studio KO</span>
+      <span class="toc-loc">Paris · Marrakech · London</span>
+    </a>
+    <a class="toc-item" href="#joseph-dirand">
+      <span class="toc-num">29</span>
+      <span class="toc-name">Joseph Dirand</span>
+      <span class="toc-loc">Paris</span>
+    </a>
+    <a class="toc-item" href="#neri-hu">
+      <span class="toc-num">30</span>
+      <span class="toc-name">Neri &amp; Hu</span>
+      <span class="toc-loc">Shanghai</span>
+    </a>
+    <a class="toc-item" href="#grt-architects">
+      <span class="toc-num">31</span>
+      <span class="toc-name">GRT Architects</span>
+      <span class="toc-loc">Brooklyn</span>
+    </a>
+    <a class="toc-item" href="#elliott-architects">
+      <span class="toc-num">32</span>
+      <span class="toc-name">Elliott Architects</span>
+      <span class="toc-loc">Blue Hill, Maine</span>
+    </a>
+    <a class="toc-item" href="#whitten-architects">
+      <span class="toc-num">33</span>
+      <span class="toc-name">Whitten Architects</span>
+      <span class="toc-loc">Portland, Maine</span>
     </a>
     <a class="toc-item" href="#products-makers" style="margin-top:12px; border-top:1px solid var(--rule); padding-top:16px;">
       <span class="toc-num" style="font-style:italic;">—</span>
@@ -511,13 +683,243 @@
   </div>
 </section>
 
+<section class="theme" id="theme-farmhouse">
+  <p class="theme-kicker">Studios</p>
+  <h2 class="theme-title">New England &amp; American Farmhouse Craft</h2>
+  <p class="theme-intro">Houses that keep their memory: Shaker lines, farmhouse bones, and rooms made by hand, where color is a decision and nothing is there by accident.</p>
+</section>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- 01 KATIE MARTINEZ DESIGN               -->
-<!-- ═══════════════════════════════════════ -->
-<section class="firm" id="katie-martinez">
+
+<section class="firm" id="hendricks-churchill">
   <div class="firm-header">
     <div class="firm-num">01</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://hendrickschurchill.com" target="_blank">Hendricks Churchill</a></h2>
+      <p class="firm-location">Sharon, Connecticut</p>
+      <p class="firm-desc">Heide Hendricks and Rafe Churchill work on the New England house as if it were a living thing: keep the bone, repair the breath, and let color do something a little fearless. From Sharon they design, build, and furnish together — Shaker proportion, Greek Revival trim, farmhouse rooms that are modest on purpose and never plain. The decisions endure because they are few, and because each one has a little mischief in it.</p>
+      <p class="firm-desc" style="margin-top:10px; font-style:italic; color:#8a7f75;">Key references: New England farmhouse · Hancock Shaker Village · Greek Revival · local antiques and craft</p>
+      <span class="firm-tag">Architecture · Interiors</span>
+    </div>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Ellsworth</h3>
+      <p class="project-meta">Sharon, Connecticut · 1871 farmhouse</p>
+      <p class="project-desc">Their own house, admired for years before they bought it: an 1871 farmhouse on what remains of a dairy farm, thirty-three acres of field and wood along a quiet road. The renovation holds to a first impression of the place. Hay is still cut by a neighboring farmer; the barn is workshop, garage, and party room. The book of the house is <em>Our Way Home</em>.</p>
+    </div>
+    <div class="gallery gallery-2">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://hendrickschurchill.com/media/pages/projects/ellsworth/9b6b8ce49f-1698690810/ellsworth-1-3000x2000.jpg" alt="Ellsworth, the 1871 farmhouse of Heide Hendricks and Rafe Churchill, Sharon, Connecticut" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://hendrickschurchill.com/media/pages/projects/ellsworth/a55d51fe77-1698690810/ellsworth-3-3000x2000.jpg" alt="Interior at Ellsworth, Hendricks Churchill, Sharon, Connecticut" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">Ellsworth, Sharon, CT &nbsp;·&nbsp; <a href="https://hendrickschurchill.com/projects/ellsworth" target="_blank" style="color:var(--accent); text-decoration:none;">hendrickschurchill.com →</a></p>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Village Revival</h3>
+      <p class="project-meta">Litchfield County · 1858 Greek Revival</p>
+      <p class="project-desc">An 1858 Greek Revival in Litchfield County, later given a mansard and a 1915 carriage house, bought first as a speculation and then restored with the client who claimed it. Historic fabric stays; flow is adjusted only where living asked for it. Plum, ochre, silvery blue, and deep green tie rooms that mix antiques with Scandinavian pieces and botanical papers. The carriage house keeps its twenty-five-foot beams.</p>
+    </div>
+    <div class="gallery gallery-2">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://hendrickschurchill.com/media/pages/projects/village-revival-farmhouse-renovation/0fad355b0f-1770147556/hendrickschurchill_litchfield_10038-3000x2000.jpg" alt="Village Revival, an 1858 Greek Revival restored by Hendricks Churchill in Litchfield County" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://hendrickschurchill.com/media/pages/projects/village-revival-farmhouse-renovation/34111f5015-1770147591/hendrickschurchill_litchfield_10009-3000x2000.jpg" alt="Interior at Village Revival, Hendricks Churchill" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">Village Revival, Litchfield County &nbsp;·&nbsp; <a href="https://hendrickschurchill.com/projects/village-revival-farmhouse-renovation" target="_blank" style="color:var(--accent); text-decoration:none;">hendrickschurchill.com →</a></p>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">The New Farmhouse</h3>
+      <p class="project-meta">Northwestern Connecticut · new construction, net-zero</p>
+      <p class="project-desc">A new house that refuses to look new. Studied against early twentieth-century vernacular and the buildings at Hancock Shaker Village, it sits below a wooded hillside over fields, gardens, and an orchard. SIPs, reclaimed fittings, solar, geothermal, and rainwater collection carry a net-zero brief. Inside, burnished lime plaster and trim painted in bold contrast — a quiet drama, and only the furniture the rooms actually need. An early collaboration, and the one that showed Heide and Rafe they should work as a single studio.</p>
+    </div>
+    <div class="gallery gallery-2">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://hendrickschurchill.com/media/pages/projects/the-new-farmhouse/e0929bf6ce-1699884300/litchfield-new-farmhouse-1-3000x2000.jpg" alt="The New Farmhouse, a net-zero Shaker-inspired house by Hendricks Churchill in northwestern Connecticut" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://hendrickschurchill.com/media/pages/projects/the-new-farmhouse/390c5bd840-1698771034/litchfield-new-farmhouse-2-3000x2000.jpg" alt="Interior of The New Farmhouse, Hendricks Churchill" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">The New Farmhouse, northwestern Connecticut &nbsp;·&nbsp; <a href="https://hendrickschurchill.com/projects/the-new-farmhouse" target="_blank" style="color:var(--accent); text-decoration:none;">hendrickschurchill.com →</a></p>
+  </div>
+</section>
+
+
+<section class="firm" id="workstead" style="background: var(--cream);">
+  <div class="firm-header">
+    <div class="firm-num">02</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://workstead.com" target="_blank">Workstead</a></h2>
+      <p class="firm-location">Brooklyn · Charleston · Salisbury, Connecticut</p>
+      <p class="firm-desc">Robert Highsmith and Stefanie Brechbuehler restore old American houses and then furnish them with their own lighting and joinery, so the new work has the same grain as the old. The mood is what they have called Southern modernism and, up north, folk modernism: original floors and moldings left in peace, a few well-made things, nothing streamlined into silence. The rooms feel inhabited because the craft is specific.</p>
+      <p class="firm-desc" style="margin-top:10px; font-style:italic; color:#8a7f75;">Key references: American house restoration · their own lighting and joinery · folk modernism</p>
+      <span class="firm-tag">Interiors · Lighting · Buildings</span>
+    </div>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Workstead House</h3>
+      <p class="project-meta">Bee's Row, Charleston · 1853</p>
+      <p class="project-desc">An 1853 Italianate row house on Charleston's Bee's Row, restored with its original floors, moldings, doors, windows, and stair, and then tuned — their phrase — as Southern modernism. Brick left bare where it wanted to be, new light and furniture sitting easily against the nineteenth-century shell. A pied-à-terre and a place to gather, not a museum of the Old South.</p>
+    </div>
+    <div class="gallery gallery-3">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://m-workstead.imgix.net/assets/galleries/111/277_WSH_Facade.jpg?w=1600&amp;q=70&amp;auto=format" alt="Facade of Workstead House, an 1853 row house on Bee's Row, Charleston" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://m-workstead.imgix.net/assets/galleries/111/1490_1608_WORKSTEAD_HOUSE_Drawing_Room.jpg?w=1600&amp;q=70&amp;auto=format" alt="Drawing room at Workstead House, Charleston" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://m-workstead.imgix.net/assets/galleries/111/1489_1608_WORKSTEAD_HOUSE_Kitchen.jpg?w=1600&amp;q=70&amp;auto=format" alt="Kitchen at Workstead House, Charleston" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">Workstead House, Charleston &nbsp;·&nbsp; <a href="https://workstead.com/brooklyn-design-studio/projects/workstead-house/" target="_blank" style="color:var(--accent); text-decoration:none;">workstead.com →</a></p>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Ingleside</h3>
+      <p class="project-meta">Salisbury, Connecticut · restored 2020–2024</p>
+      <p class="project-desc">The founders' own house, on a hill in Salisbury's historic district. Parts of the structure reach into the eighteenth century; most of it was built in 1815. Tall 12-over-12 windows, a knot garden, a meadow, a long stone wall. Antique and new furniture share the rooms. The 1856 carriage house was rebuilt as a studio — clapboard, cedar roof, a concrete floor, a loft — with the old use still legible in the stair.</p>
+    </div>
+    <div class="gallery gallery-3">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://m-workstead.imgix.net/assets/galleries/613/2045_INGLESIDEArtboard_1.jpg?w=1600&amp;q=70&amp;auto=format" alt="Ingleside Residence, Salisbury, Connecticut, restored by Workstead" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://m-workstead.imgix.net/assets/galleries/613/2049_INGLESIDEArtboard_6.jpg?w=1600&amp;q=70&amp;auto=format" alt="Interior at Ingleside, Salisbury, Connecticut" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://m-workstead.imgix.net/assets/galleries/613/2053_INGLESIDEArtboard_11.jpg?w=1600&amp;q=70&amp;auto=format" alt="Room at Ingleside, Workstead, Salisbury, Connecticut" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">Ingleside, Salisbury, CT &nbsp;·&nbsp; <a href="https://workstead.com/brooklyn-design-studio/projects/ingleside-residence/" target="_blank" style="color:var(--accent); text-decoration:none;">workstead.com →</a></p>
+  </div>
+</section>
+
+
+<section class="firm" id="jersey-ice-cream">
+  <div class="firm-header">
+    <div class="firm-num">03</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://www.jerseyicecreamco.com" target="_blank">Jersey Ice Cream Co.</a></h2>
+      <p class="firm-location">Catskills · Hudson Valley, New York</p>
+      <p class="firm-desc">Tara Mangini and Percy Bright founded the studio in 2010 — the name from a flea-market embosser, not a recipe — and for years they lived inside the houses they were remaking. Percy trowels the plaster and builds the furniture; Tara gathers the old things and the color. The work is hand-troweled walls, reclaimed wood, and rooms that feel mended rather than decorated. Careful, a little magic, never fussy.</p>
+      <p class="firm-desc" style="margin-top:10px; font-style:italic; color:#8a7f75;">Key references: hand-troweled plaster · reclaimed wood · self-made furniture · Arts &amp; Crafts houses</p>
+      <span class="firm-tag">Interior Design</span>
+    </div>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Minwawa</h3>
+      <p class="project-meta">Tannersville, New York · Arts &amp; Crafts</p>
+      <p class="project-desc">Their studio dates this mountain house to 1887: an Arts &amp; Crafts place in the artist colony Candace Wheeler helped found above Tannersville, later published in Architectural Digest. They came in after the structure was put right and worked with a light hand — original detail left to lead, plaster and vintage furniture brought up to the present without erasing the time warp. Lovell Kuhn Construction did the bones.</p>
+    </div>
+    <div class="gallery gallery-3">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://www.jerseyicecreamco.com/wp-content/uploads/2018/06/01-Minwawa.jpg" alt="Minwawa, an Arts and Crafts house in Tannersville, New York, by Jersey Ice Cream Co." onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://www.jerseyicecreamco.com/wp-content/uploads/2018/06/03-Minwawa.jpg" alt="Interior at Minwawa, Jersey Ice Cream Co." onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://www.jerseyicecreamco.com/wp-content/uploads/2018/06/06-Minwawa.jpg" alt="Room at Minwawa, Tannersville, Jersey Ice Cream Co." onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">Minwawa, Tannersville, NY &nbsp;·&nbsp; <a href="https://www.jerseyicecreamco.com/projects/" target="_blank" style="color:var(--accent); text-decoration:none;">jerseyicecreamco.com →</a></p>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Their upstate farmhouse</h3>
+      <p class="project-meta">Upstate New York · 1870</p>
+      <p class="project-desc">After years of moving from job to job, they bought a rundown 1870 farmhouse and stayed. Country Living records the method: live in the dust, let the house decide. Plaster — Percy's long study — on the walls and the range hood, original floors refinished, cabinetry in reclaimed hemlock, tempera paint with the milky depth that suits gypsum. Swedish farmhouse color, learned on a trip, for a long New York winter. Photographs courtesy of the studio.</p>
+    </div>
+    <div class="gallery gallery-3">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://hips.hearstapps.com/hmg-prod/images/jersey-ice-cream-new-york-farmhouse-exterior-678ad2de945b0.jpg" alt="Exterior of Tara Mangini and Percy Bright's 1870 upstate New York farmhouse" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://hips.hearstapps.com/hmg-prod/images/jersey-ice-cream-new-york-farmhouse-living-room-67911f60083aa.jpg" alt="Living room of the Jersey Ice Cream Co. upstate farmhouse" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://hips.hearstapps.com/hmg-prod/images/jersey-ice-cream-new-york-farmhouse-dining-room-table-67911e55a65d6.jpg" alt="Dining room of the Jersey Ice Cream Co. upstate farmhouse" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">Their farmhouse, upstate New York &nbsp;·&nbsp; Country Living &nbsp;·&nbsp; photographs courtesy of Jersey Ice Cream Co.</p>
+  </div>
+</section>
+
+
+<section class="firm" id="heidi-caillier" style="background: var(--cream);">
+  <div class="firm-header">
+    <div class="firm-num">04</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://heidicaillierdesign.com" target="_blank">Heidi Caillier Design</a></h2>
+      <p class="firm-location">Seattle</p>
+      <p class="firm-desc">Heidi Caillier builds rooms that feel as if a family had already been living in them for a century — cottage scale, layered pattern, vintage sitting next to something made last year. New houses are the harder trick, and she treats them as such: how to keep a just-built room from looking just-built. The restraint is in the editing. The magic is that the rooms still seem to have a plot.</p>
+      <p class="firm-desc" style="margin-top:10px; font-style:italic; color:#8a7f75;">Key references: American cottage · collected pattern · houses that feel older than they are</p>
+      <span class="firm-tag">Interior Design</span>
+    </div>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Colorado ranch</h3>
+      <p class="project-meta">Southwest Colorado · new build, 2025</p>
+      <p class="project-desc">A young family on thirteen acres began with a 1970s farmhouse and, after the plan and a growing household made renovation the wrong tool, built again — asking for a house that felt as if it had stood there for generations. Shingled roof, earth colors, the landscape doing half the work. Architectural Digest published it in March 2025.</p>
+    </div>
+    <div class="gallery gallery-3">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://heidicaillierdesign.com/wp-content/uploads/2025/03/HCD_Colorado_Web-62.jpg" alt="Colorado ranch by Heidi Caillier Design" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://heidicaillierdesign.com/wp-content/uploads/2025/03/HCD_Colorado_Web-2.jpg" alt="Interior of the Colorado ranch by Heidi Caillier" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://heidicaillierdesign.com/wp-content/uploads/2025/03/HCD_Colorado_Web.jpg" alt="Room in the Colorado ranch by Heidi Caillier Design" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">Colorado ranch &nbsp;·&nbsp; Photography: Haris Kenjar &nbsp;·&nbsp; Architectural Digest, 2025 &nbsp;·&nbsp; <a href="https://heidicaillierdesign.com/portfolio/colorado/" target="_blank" style="color:var(--accent); text-decoration:none;">heidicaillierdesign.com →</a></p>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Mill Valley</h3>
+      <p class="project-meta">Mill Valley, California · 1896</p>
+      <p class="project-desc">An 1896 fishing retreat — walls once insulated with the San Francisco Chronicle — for a Marin family who asked for a house of Mill Valley, not a style. Paint and paper give the open plan its rooms. A thread of Sea Ranch runs through a white-oak guesthouse. Frederic published the house in 2025; the same photographer.</p>
+    </div>
+    <div class="gallery gallery-3">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://heidicaillierdesign.com/wp-content/uploads/2025/09/HCD-Mill-Valley-3-copy-scaled.jpg" alt="Mill Valley cottage by Heidi Caillier Design" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://heidicaillierdesign.com/wp-content/uploads/2025/09/HCD-Mill-Valley-36.jpg" alt="Interior of the Mill Valley house by Heidi Caillier" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://heidicaillierdesign.com/wp-content/uploads/2025/09/HCD-Mill-Valley-11.jpg" alt="Room in the Mill Valley house by Heidi Caillier Design" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">Mill Valley, California &nbsp;·&nbsp; Photography: Haris Kenjar &nbsp;·&nbsp; <a href="https://heidicaillierdesign.com/portfolio/mill-valley/" target="_blank" style="color:var(--accent); text-decoration:none;">heidicaillierdesign.com →</a></p>
+  </div>
+</section>
+
+
+<section class="firm" id="katie-martinez">
+  <div class="firm-header">
+    <div class="firm-num">05</div>
     <div class="firm-meta">
       <h2 class="firm-name"><a href="https://katiemartinezdesign.com" target="_blank">Katie Martinez Design</a></h2>
       <p class="firm-location">San Francisco · New England</p>
@@ -555,12 +957,9 @@
 </section>
 
 
-<!-- ═══════════════════════════════════════ -->
-<!-- 02 MOTHER STUDIO                        -->
-<!-- ═══════════════════════════════════════ -->
 <section class="firm" id="mother-studio" style="background: var(--cream);">
   <div class="firm-header">
-    <div class="firm-num">02</div>
+    <div class="firm-num">06</div>
     <div class="firm-meta">
       <h2 class="firm-name"><a href="https://motherstudio.com" target="_blank">Mother Studio</a></h2>
       <p class="firm-location">Asheville, NC &nbsp;·&nbsp; Working Nationally</p>
@@ -595,325 +994,212 @@
 </section>
 
 
-<!-- ═══════════════════════════════════════ -->
-<!-- 03 REATH DESIGN                        -->
-<!-- ═══════════════════════════════════════ -->
-<section class="firm" id="reath-design">
-  <div class="firm-header">
-    <div class="firm-num">03</div>
-    <div class="firm-meta">
-      <h2 class="firm-name"><a href="https://www.reathdesign.com" target="_blank">Reath Design</a></h2>
-      <p class="firm-location">Los Angeles, CA &nbsp;·&nbsp; Frances Merrill</p>
-      <p class="firm-desc">Frances Merrill founded Reath Design in 2009 after working at Commune Design, and her studio is everything Commune is — but more layered, more personal. She uses wallpaper with abandon, mixes pattern and texture across eras, and brings an art-world sensibility that keeps rooms from tipping into decoration. Her bathrooms are known for a strong material gesture — graphic tile, a slab of book-matched marble, warm wood — held in tension with something unexpected: a vintage fixture, an odd color, a print that shouldn't work but does. Quiet confidence with a wink.</p>
-      <span class="firm-tag">Interior Design</span>
-    </div>
-  </div>
-
-  <!-- Row 1: Powder room hero + Point Dume -->
-  <div class="gallery gallery-2" style="gap:12px; margin-bottom: 12px;">
-    <div class="img-wrap img-tall">
-      <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2025/03/07.-Powder-Room-Reath_Portland6035Final.jpg"
-           alt="Portland Residence — Powder Room, Reath Design"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-    <div style="display: grid; grid-template-rows: 1fr 1fr; gap: 12px;">
-      <div class="img-wrap">
-        <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/08/PointDume.2.jpg"
-             alt="Point Dume, Malibu — Interior, Reath Design"
-             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-      </div>
-      <div class="img-wrap">
-        <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/08/PointDume.1.jpg"
-             alt="Point Dume, Malibu — Interior, Reath Design"
-             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-      </div>
-    </div>
-  </div>
-
-  <!-- Row 2: Supporting rooms -->
-  <div class="gallery gallery-2" style="gap:12px;">
-    <div class="img-wrap img-wide">
-      <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/08/SantaMonica.1.jpg"
-           alt="Santa Monica Beach House, Reath Design"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-    <div class="img-wrap img-wide">
-      <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/08/ReathDesign_PointDume_kitchen.jpg"
-           alt="Point Dume Kitchen, Reath Design"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-  </div>
-  <p class="img-label" style="margin-top:12px;">Portland Residence (powder room) &nbsp;·&nbsp; Point Dume, Malibu &nbsp;·&nbsp; Santa Monica Beach House &nbsp;·&nbsp; Reath Design by Frances Merrill &nbsp;·&nbsp; Via 1stDibs Introspective</p>
+<section class="theme" id="theme-salvage">
+  <p class="theme-kicker">Studios</p>
+  <h2 class="theme-title">Salvage, Patina &amp; Adaptive Reuse</h2>
+  <p class="theme-intro">Old material, given another life — timber, plaster, and the odd rescued thing — arranged so the building feels found rather than finished.</p>
 </section>
 
 
-<!-- ═══════════════════════════════════════ -->
-<!-- 04 COMMUNE DESIGN                      -->
-<!-- ═══════════════════════════════════════ -->
-<section class="firm" id="commune-design" style="background: var(--cream);">
-  <div class="firm-header">
-    <div class="firm-num">04</div>
-    <div class="firm-meta">
-      <h2 class="firm-name"><a href="https://www.communedesign.com" target="_blank">Commune Design</a></h2>
-      <p class="firm-location">Los Angeles, CA &nbsp;·&nbsp; Roman Alonso &amp; Steven Johanknecht</p>
-      <p class="firm-desc">Commune is where Frances Merrill trained — a studio built on mid-century reference, material honesty, and an unfussy California sensibility. Their West Marin Retreat (above Tomales Bay) is a study in restraint with personality: limewashed walls, local craftwork, Edith Heath and Josef Frank tile in the bathrooms, and furniture by JB Blunk. Mid-century Scandinavian summer house meets Northern California landscape. Color and pattern turned up just enough.</p>
-      <span class="firm-tag">Interior Design + Architecture</span>
-    </div>
-  </div>
-
-  <!-- Row 1: 3-up -->
-  <div class="gallery gallery-3" style="gap:12px; margin-bottom: 12px;">
-    <div class="img-wrap img-tall">
-      <img loading="lazy" decoding="async" src="https://images.ctfassets.net/k1tan84lsd0d/1GYDARYtgLgcnJ0tZuWF3T/8d0e96127a5597d794d7f7e5431724c5/CommuneInverness1204Final.jpg?w=900"
-           alt="West Marin Retreat — Interior, Commune Design"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-    <div class="img-wrap img-tall">
-      <img loading="lazy" decoding="async" src="https://images.ctfassets.net/k1tan84lsd0d/52kzMJz1n5qpvw6VWJCR0R/a4475d287f02b142f024a4a510f05bd5/CommuneInverness0197Final.jpg?w=900"
-           alt="West Marin Retreat — Interior, Commune Design"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-    <div class="img-wrap img-tall">
-      <img loading="lazy" decoding="async" src="https://images.ctfassets.net/k1tan84lsd0d/2ptV8RjEV3n9GLWfN81Zh8/8b03ac8b7158f881b6682704e108de5c/CommuneInverness0800Final.jpg?w=900"
-           alt="West Marin Retreat — Interior, Commune Design"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-  </div>
-
-  <!-- Row 2: wide panoramic -->
-  <div class="gallery gallery-2" style="gap:12px;">
-    <div class="img-wrap img-wide">
-      <img loading="lazy" decoding="async" src="https://images.ctfassets.net/k1tan84lsd0d/mcusRsQlDJMKwwpNzpOjy/a5c53a8f92718a7938e699bcba782085/CommuneInverness1006Final.jpg?w=900"
-           alt="West Marin Retreat — Interior, Commune Design"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-    <div class="img-wrap img-wide">
-      <img loading="lazy" decoding="async" src="https://images.ctfassets.net/k1tan84lsd0d/iHi8N5TGNIE88QSnIPZp2/c2b7b0750daf2090a13dd1a85cceb6a4/CommuneInverness0862Final.jpg?w=1800"
-           alt="West Marin Retreat — Interior, Commune Design"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-  </div>
-  <p class="img-label" style="margin-top:12px;">West Marin Retreat, Tomales Bay, CA &nbsp;·&nbsp; Commune Design &nbsp;·&nbsp; Bathrooms: Edith Heath + Josef Frank tile</p>
-</section>
-
-
-<!-- ═══════════════════════════════════════ -->
-<!-- 05 NICKEY KEHOE                        -->
-<!-- ═══════════════════════════════════════ -->
-<section class="firm" id="nickey-kehoe">
-  <div class="firm-header">
-    <div class="firm-num">05</div>
-    <div class="firm-meta">
-      <h2 class="firm-name"><a href="https://nickeykehoe.com/blogs/portfolio" target="_blank">Nickey Kehoe</a></h2>
-      <p class="firm-location">Los Angeles · New York &nbsp;·&nbsp; Todd Nickey &amp; Amy Kehoe</p>
-      <p class="firm-desc">Todd Nickey and Amy Kehoe run one of LA's most quietly distinctive studios — color-forward without being obvious, eclectic without being chaotic. Their interiors pull from textile history, vintage finds, and their own NK Collection to build rooms that feel genuinely inhabited. Bathrooms feature custom onyx or stone vanities, wallpaper murals (often Gracie Studio), and materials that age well: unlacquered brass, honed surfaces, richly grained wood. Bespoke and considered, never trend-driven.</p>
-      <span class="firm-tag">Interior Design</span>
-    </div>
-  </div>
-
-  <!-- Row 1: Brentwood -->
-  <div class="gallery gallery-3" style="gap:12px; margin-bottom: 12px;">
-    <div class="img-wrap img-tall">
-      <img loading="lazy" decoding="async" src="https://cdn.shopify.com/s/files/1/1713/4363/files/DArnold_021026_NickeyKehoe_17781_web.jpg?v=1777053484"
-           alt="Brentwood Residence, Nickey Kehoe"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-    <div class="img-wrap img-tall">
-      <img loading="lazy" decoding="async" src="https://cdn.shopify.com/s/files/1/1713/4363/files/DArnold_021026_NickeyKehoe_18132_web.jpg?v=1777053485"
-           alt="Brentwood Residence, Nickey Kehoe"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-    <div class="img-wrap img-tall">
-      <img loading="lazy" decoding="async" src="https://cdn.shopify.com/s/files/1/1713/4363/files/DArnold_021026_NickeyKehoe_18302_edit_web.jpg?v=1777053484"
-           alt="Brentwood Residence, Nickey Kehoe"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-  </div>
-
-  <!-- Row 2: Santa Monica Canyon -->
-  <div class="gallery gallery-2" style="gap:12px;">
-    <div class="img-wrap img-wide">
-      <img loading="lazy" decoding="async" src="https://cdn.shopify.com/s/files/1/1713/4363/files/NK-Rustic_Canyon-5.jpg?v=1757976310"
-           alt="Santa Monica Canyon, Nickey Kehoe"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-    <div class="img-wrap img-wide">
-      <img loading="lazy" decoding="async" src="https://cdn.shopify.com/s/files/1/1713/4363/files/NK-Rustic_Canyon-4.jpg?v=1757976314"
-           alt="Santa Monica Canyon, Nickey Kehoe"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-  </div>
-
-  <!-- Row 3: More Brentwood -->
-  <div class="gallery gallery-2" style="gap:12px; margin-top: 12px;">
-    <div class="img-wrap img-wide">
-      <img loading="lazy" decoding="async" src="https://cdn.shopify.com/s/files/1/1713/4363/files/DArnold_021026_NickeyKehoe_17734_web.jpg?v=1777053482"
-           alt="Brentwood Residence, Nickey Kehoe"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-    <div class="img-wrap img-wide">
-      <img loading="lazy" decoding="async" src="https://cdn.shopify.com/s/files/1/1713/4363/files/NK-Rustic_Canyon-2.jpg?v=1757976309"
-           alt="Santa Monica Canyon, Nickey Kehoe"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-  </div>
-  <p class="img-label" style="margin-top:12px;">Brentwood Residence &amp; Santa Monica Canyon &nbsp;·&nbsp; Nickey Kehoe &nbsp;·&nbsp; Photography: D. Arnold</p>
-</section>
-
-
-<!-- ═══════════════════════════════════════ -->
-<!-- 06 STUDIO KO                           -->
-<!-- Paris · Marrakech · London             -->
-<!-- ═══════════════════════════════════════ -->
-<section class="firm" id="studio-ko" style="background: var(--cream);">
-  <div class="firm-header">
-    <div class="firm-num">06</div>
-    <div class="firm-meta">
-      <h2 class="firm-name"><a href="https://www.studioko.fr" target="_blank">Studio KO</a></h2>
-      <p class="firm-location">Paris · Marrakech · London &nbsp;·&nbsp; Karl Fournier &amp; Olivier Marty</p>
-      <p class="firm-desc">Karl Fournier and Olivier Marty founded Studio KO in Paris in 1999 and have since become one of the most internationally admired practices of their generation — moving between rigorous Moroccan villas, London hospitality (Chiltern Firehouse), the Yves Saint Laurent Museum in Marrakech, boutiques for Aesop and Ami, and private residences across France, Morocco, Corsica, and Los Angeles. Their work holds a generative tension: "constantly torn between our desire for extremely pared-down, pure things and a more decorative, busy aesthetic." The common denominator is that their buildings are always completely in tune with their environment — materials, handicraft, landscape. Multiple features in World of Interiors.</p>
-      <span class="firm-tag">Architecture · Interior Design · Paris · Marrakech</span>
-    </div>
-  </div>
-
-  <!-- Row 1: header wide + Tangier living room -->
-  <div class="gallery gallery-2" style="gap:12px; margin-bottom:12px;">
-    <div class="img-wrap img-wide">
-      <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/11/studiokoheader4.jpg"
-           alt="Studio KO — Exterior"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-    <div class="img-wrap img-wide">
-      <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/10/studio_ko_livingroom.jpg"
-           alt="Pierre Bergé Home, Tangier — Living Room, Studio KO"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-  </div>
-
-  <!-- Row 2: three villas -->
-  <div class="gallery gallery-3" style="gap:12px; margin-bottom:12px;">
-    <div class="img-wrap img-tall">
-      <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/10/GHouse5-e1415034327109.jpg"
-           alt="Luberon House, France — Living Room, Studio KO"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-    <div class="img-wrap img-tall">
-      <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/11/koslide1.jpg"
-           alt="Villa K, Tagadert, Morocco — Studio KO"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-    <div class="img-wrap img-tall">
-      <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/11/koslide2.jpg"
-           alt="Villa E, Ourika, Morocco — Studio KO"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-  </div>
-
-  <!-- Row 3: Tagadert study + Luberon pool -->
-  <div class="gallery gallery-2" style="gap:12px;">
-    <div class="img-wrap img-wide">
-      <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/10/studioko_office.jpg"
-           alt="Tagadert Villa — Study and Bedroom, Studio KO"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-    <div class="img-wrap img-wide">
-      <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/10/studioko_pool2.jpg"
-           alt="Luberon House — Pool Terrace, Studio KO"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-  </div>
-  <p class="img-label" style="margin-top:12px;">Luberon, France &nbsp;·&nbsp; Villa K, Tagadert &nbsp;·&nbsp; Villa E, Ourika &nbsp;·&nbsp; Pierre Bergé Home, Tangier &nbsp;·&nbsp; Studio KO &nbsp;·&nbsp; Via 1stDibs Introspective</p>
-</section>
-
-
-<!-- ═══════════════════════════════════════ -->
-<!-- 07 ARENT & PYKE                        -->
-<!-- Sydney · Melbourne                     -->
-<!-- ═══════════════════════════════════════ -->
-<section class="firm" id="arent-pyke">
+<section class="firm" id="retrouvius">
   <div class="firm-header">
     <div class="firm-num">07</div>
     <div class="firm-meta">
-      <h2 class="firm-name"><a href="https://arentpyke.com" target="_blank">Arent&amp;Pyke</a></h2>
-      <p class="firm-location">Sydney &amp; Melbourne, Australia &nbsp;·&nbsp; Juliette Arent &amp; Sarah-Jane Pyke</p>
-      <p class="firm-desc">Juliette Arent and Sarah-Jane Pyke are among the most decorated interior designers in Australia and have become genuine international figures — regulars in World of Interiors, Vogue Living, and Elle Decoration, with a monograph published by Thames &amp; Hudson. Their work is defined by an extraordinary layering of material, art, object, and memory: rooms that feel genuinely inhabited by specific people with specific pasts. Vintage finds and design classics appear alongside custom fabrication; color is used with restraint and confidence simultaneously. Their bathrooms are benchmark work — arched stone frames, freestanding baths, joinery floating above stone floors, custom marble islands. Nothing accidental; everything thought through in minute detail.</p>
-      <span class="firm-tag">Interior Design · Custom Fabrication · Art Curation</span>
+      <h2 class="firm-name"><a href="https://www.retrouvius.com" target="_blank">Retrouvius</a></h2>
+      <p class="firm-location">London</p>
+      <p class="firm-desc">Maria Speake and Adam Hills began in Glasgow in 1993, appalled at the joinery being thrown out of tenements, and built a London practice in which salvage is the material, not the mood. Adam keeps the warehouse; Maria's studio puts the orphaned parts back to work — with wit, and with screws rather than glue, so a thing can move again. The rooms are thrifty and slightly enchanted. Nothing is over-finished.</p>
+      <p class="firm-desc" style="margin-top:10px; font-style:italic; color:#8a7f75;">Key references: architectural salvage · limewash and timber · reuse as the design method</p>
+      <span class="firm-tag">Salvage · Interior Design</span>
     </div>
   </div>
 
-  <!-- Bradleys Head House (Mosman NSW) -->
-  <div class="gallery gallery-3" style="gap:12px; margin-bottom:12px;">
-    <div class="img-wrap img-tall">
-      <img loading="lazy" decoding="async" src="https://arentpyke.com/media/cache/5b150ef22a292d82ff93507d6bab7888cf43ac63.jpg"
-           alt="Bradleys Head House — Arent&amp;Pyke"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Country Home in the City</h3>
+      <p class="project-meta">Notting Hill, London</p>
+      <p class="project-desc">A townhouse just off Portobello, for a costume designer who wanted the quiet of a country house. Baked earth, limewash, eroded stone, antique textiles. Eighteenth-century parquet becomes kitchen cabinet fronts; a seventeenth-century fireplace reads as if it had always been in the snug; a guest bed is lined in reclaimed pine cheeseboards. The house was meant to feel as though it had always looked like this.</p>
     </div>
-    <div class="img-wrap img-tall">
-      <img loading="lazy" decoding="async" src="https://arentpyke.com/media/cache/1749fb4071ad1f2682f35d860aa3571bf1ea09ea.jpg"
-           alt="Bradleys Head House — Arent&amp;Pyke"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    <div class="gallery gallery-3">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://www.retrouvius.com/app/uploads/2023/06/1-2-1024x683.jpg" alt="Country Home in the City, a Notting Hill townhouse by Retrouvius" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://www.retrouvius.com/app/uploads/2023/06/3-2-1024x716.jpg" alt="Kitchen at Country Home in the City, Retrouvius" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-tall">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://www.retrouvius.com/app/uploads/2023/06/4-2-1013x1024.jpg" alt="Detail at Country Home in the City, Retrouvius" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
     </div>
-    <div class="img-wrap img-tall">
-      <img loading="lazy" decoding="async" src="https://arentpyke.com/media/cache/baa93df6916181597ee06999dc1aaa2de91ea5ed.jpg"
-           alt="Bradleys Head House — Arched Ensuite, Arent&amp;Pyke"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
+    <p class="img-label" style="margin-top:12px;">Country Home in the City, London &nbsp;·&nbsp; <a href="https://www.retrouvius.com/projects/country-home-in-the-city/" target="_blank" style="color:var(--accent); text-decoration:none;">retrouvius.com →</a></p>
   </div>
-  <div class="gallery gallery-2" style="gap:12px; margin-bottom:12px;">
-    <div class="img-wrap img-wide">
-      <img loading="lazy" decoding="async" src="https://arentpyke.com/media/cache/83db6cdf5d4feb6596e75aa735fcc84900d78d6d.jpg"
-           alt="Bradleys Head House — Living Room, Arent&amp;Pyke"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-    <div class="img-wrap img-wide">
-      <img loading="lazy" decoding="async" src="https://arentpyke.com/media/cache/fcb973902024141b3364db6cfa257c7c7276cfb0.jpg"
-           alt="Bradleys Head House — Kitchen, Arent&amp;Pyke"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-  </div>
-  <p class="img-label" style="margin-bottom:28px;">Bradleys Head House, Mosman NSW &nbsp;·&nbsp; Architecture: TKD Architects &nbsp;·&nbsp; Photography: Anson Smart</p>
 
-  <!-- Golden Light (Lower North Shore Sydney) -->
-  <div class="gallery gallery-3" style="gap:12px; margin-bottom:12px;">
-    <div class="img-wrap img-tall">
-      <img loading="lazy" decoding="async" src="https://arentpyke.com/media/cache/52d70842d0b0fe7ba0490e3684ec5fb180840133.jpg"
-           alt="Golden Light — Arent&amp;Pyke"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">The Garages</h3>
+      <p class="project-meta">Kensal Rise, London · their home and studio</p>
+      <p class="project-desc">A plot of breeze-block garages, now their house and laboratory. The council required a single dwelling; they built a sunken courtyard reached by a tunnel, and furnished it from the leftovers — Lutyens teak as sliding partitions, Patent Office shelving as flooring, cheeseboards on a ceiling, a suede-panelled kitchen. World of Interiors published it in October 2025 as "Remains to Be Seen."</p>
     </div>
-    <div class="img-wrap img-tall">
-      <img loading="lazy" decoding="async" src="https://arentpyke.com/media/cache/b82058d9d86868acf8e5b8618f7893ed2be4a0fb.jpg"
-           alt="Golden Light — Marigold Sitting Room, Arent&amp;Pyke"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    <div class="gallery gallery-3">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://www.retrouvius.com/wp-content/uploads/2025/10/01-SU1252_Retrouvius_garages_Ext_11-scaled.jpg" alt="The Garages, home and studio of Maria Speake and Adam Hills, Kensal Rise" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-tall">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://www.retrouvius.com/app/uploads/2025/10/08-SU1252_Retrouvius_garages_Living9_Hero-784x1024.jpg" alt="Living space at The Garages, Retrouvius" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-tall">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://www.retrouvius.com/app/uploads/2025/10/06-SU1252_Retrouvius_garages_Courtyard10_Hero2-778x1024.jpg" alt="Courtyard at The Garages, Retrouvius" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
     </div>
-    <div class="img-wrap img-tall">
-      <img loading="lazy" decoding="async" src="https://arentpyke.com/media/cache/8022fb508f06c4d91cc7c7d91e430d1100351252.jpg"
-           alt="Golden Light — Dining, Arent&amp;Pyke"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
+    <p class="img-label" style="margin-top:12px;">The Garages, Kensal Rise &nbsp;·&nbsp; Photography: Simon Upton &nbsp;·&nbsp; World of Interiors, October 2025 &nbsp;·&nbsp; <a href="https://www.retrouvius.com/projects/the-garages/" target="_blank" style="color:var(--accent); text-decoration:none;">retrouvius.com →</a></p>
   </div>
-  <div class="gallery gallery-2" style="gap:12px;">
-    <div class="img-wrap img-wide">
-      <img loading="lazy" decoding="async" src="https://arentpyke.com/media/cache/40638869872d7970c3e06764cc555baf10b0a8e0.jpg"
-           alt="Golden Light — Primary Suite, Arent&amp;Pyke"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-    <div class="img-wrap img-wide">
-      <img loading="lazy" decoding="async" src="https://arentpyke.com/media/cache/534c0fffb5eba2841053d41b89f91e04ad7e1efe.jpg"
-           alt="Golden Light — Interior, Arent&amp;Pyke"
-           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
-    </div>
-  </div>
-  <p class="img-label" style="margin-top:12px;">Golden Light, Lower North Shore, Sydney &nbsp;·&nbsp; Photography: Anson Smart &nbsp;·&nbsp; Styling: Jack Milenkovic</p>
 </section>
 
 
-<!-- ═══════════════════════════════════════ -->
-<!-- 08 STUDIOILSE                          -->
-<!-- Ilse Crawford · London · International -->
-<!-- ═══════════════════════════════════════ -->
-<section class="firm" id="studioilse" style="background: var(--cream);">
+<section class="firm" id="tuckey-design" style="background: var(--cream);">
   <div class="firm-header">
     <div class="firm-num">08</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://tuckeydesign.com" target="_blank">Tuckey Design Studio</a></h2>
+      <p class="firm-location">London · Andermatt</p>
+      <p class="firm-desc">Jonathan Tuckey's studio works on the affection people already have for a building, then makes that building usable for another generation. Adaptive reuse is the usual path; new work, when it comes, is held to the same standard of craft. In the Alps the palette is timber, lime, and a folk touch that never turns cute — balconies, dormers, a stair that still knows the cattle once lived downstairs.</p>
+      <p class="firm-desc" style="margin-top:10px; font-style:italic; color:#8a7f75;">Key references: adaptive reuse · crafted timber · alpine vernacular · folk detail</p>
+      <span class="firm-tag">Architecture</span>
+    </div>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Halbhaus</h3>
+      <p class="project-meta">Andermatt, Switzerland · 17th-century chalet</p>
+      <p class="project-desc">A listed chalet, repaired rather than replaced. A double-height void lifts the old agricultural ceiling; bedrooms sit in an insulated attic; a spa is cut into the rock under the original stair. New timber shingles let the elevation sit among its neighbors. Heating comes from a communal wood-chip boiler. The timber already in the building is kept, and asked to do new work.</p>
+    </div>
+    <div class="gallery gallery-3">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://tuckeydesign.com/wp-content/uploads/2024/01/Tuckey-Design-Studio-Residential-Halbhaus-Andermatt-Switzerland-Exterior-01-Photography-Dario-Borruto-scaled.jpg" alt="Halbhaus, a 17th-century chalet in Andermatt refurbished by Tuckey Design Studio" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://tuckeydesign.com/wp-content/uploads/2024/01/Tuckey-Design-Studio-Residential-Halbhaus-Andermatt-Switzerland-Living-Room-01-Photography-Dario-Borruto-scaled.jpg" alt="Living room at Halbhaus, Andermatt" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://tuckeydesign.com/wp-content/uploads/2024/01/Tuckey-Design-Studio-Residential-Halbhaus-Andermatt-Switzerland-Bedroom-01-Photography-Dario-Borruto-scaled.jpg" alt="Bedroom at Halbhaus, Andermatt" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">Halbhaus, Andermatt &nbsp;·&nbsp; Photography: Dario Borruto &nbsp;·&nbsp; <a href="https://tuckeydesign.com/projects/halbhaus/" target="_blank" style="color:var(--accent); text-decoration:none;">tuckeydesign.com →</a></p>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Nossenhaus</h3>
+      <p class="project-meta">Andermatt · building of 1620</p>
+      <p class="project-desc">The second-oldest building in Andermatt, from 1620: families above, animals below, fallen into disrepair. With Ruedi Kreienbühl it is now three apartments and a wine bar. Stone to the weather, timber to the sun, the two locked together as they once were. Lime plaster, larch, and pine were chosen to fade into the old fabric. New pine balconies and zinc dormers give the outside a playful face without abandoning the village.</p>
+    </div>
+    <div class="gallery gallery-3">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://tuckeydesign.com/wp-content/uploads/2024/01/Tuckey-Design-Studio-Leisure-and-Commercial-Nossenhaus-Andermatt-Switzerland-Exterior-01-Photography-James-Brittain-scaled.jpg" alt="Nossenhaus in Andermatt, transformed by Tuckey Design Studio" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://tuckeydesign.com/wp-content/uploads/2024/01/Tuckey-Design-Studio-Leisure-and-Commercial-Nossenhaus-Andermatt-Switzerland-Living-Room-01-Photography-James-Brittain-scaled.jpg" alt="Living room at Nossenhaus, Andermatt" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://tuckeydesign.com/wp-content/uploads/2024/01/Tuckey-Design-Studio-Leisure-and-Commercial-Nossenhaus-Andermatt-Switzerland-Bedroom-01-Photography-James-Brittain-scaled.jpg" alt="Bedroom at Nossenhaus, Andermatt" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">Nossenhaus, Andermatt &nbsp;·&nbsp; Photography: James Brittain &nbsp;·&nbsp; <a href="https://tuckeydesign.com/projects/nossenhaus/" target="_blank" style="color:var(--accent); text-decoration:none;">tuckeydesign.com →</a></p>
+  </div>
+</section>
+
+
+<section id="roman-williams" class="studio-section">
+  <div class="studio-header">
+    <p class="studio-eyebrow">09</p>
+    <h2 class="studio-name">Roman &amp; Williams</h2>
+    <p class="studio-location">New York</p>
+  </div>
+
+  <div class="project-card">
+    <div class="project-card-text" style="max-width:640px;">
+      <p class="project-card-eyebrow">Practice Overview</p>
+      <h3 class="project-card-title">Romantic Eclecticism</h3>
+      <p class="project-card-body">Stephen Alesch and Robin Standefer founded Roman &amp; Williams in 2002, bringing a production design sensibility (both had film backgrounds) to interiors. Each project constructs a complete world — a particular era and mood rendered with period-accurate but never pastiche materials. Their most celebrated work balances Victorian-era sourcing (pressed tin ceilings, salvaged brick, cast iron) with modernist furniture and contemporary art; the result is romantic without being sentimental.</p>
+      <p class="project-card-body" style="margin-top:12px;">The Guild, their Paris shop on the Île Saint-Louis, is a landmark reference point for how antiques, contemporary craft, and design objects coexist at retail scale. Key projects include The Standard Hotel New York, Le Coucou restaurant, Atera, and an extensive body of residential work in New York, the Hamptons, and internationally. Their own house in Connecticut has been widely published as a master class in romantic American country.</p>
+      <p class="project-card-body" style="margin-top:12px; font-style:italic; color:#8a7f75;">Key references: Victorian American vernacular · Arts &amp; Crafts · Film set design · Craft object collecting</p>
+      <a class="project-card-link" href="https://romanandwilliams.com" target="_blank">romanandwilliams.com →</a>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-top:12px;">
+    <div class="placeholder-card"><span>Le Coucou<br/>Restaurant — European grandeur</span></div>
+    <div class="placeholder-card"><span>Connecticut House<br/>American country, craft layers</span></div>
+    <div class="placeholder-card"><span>The Guild, Paris<br/>Île Saint-Louis retail landmark</span></div>
+  </div>
+
+  <div style="margin-top:32px; padding-top:24px; border-top:1px solid var(--rule);">
+    <div style="display:flex; gap:24px; flex-wrap:wrap;">
+      <a href="https://romanandwilliams.com" target="_blank" style="font-size:12px; color:var(--taupe); letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--rule);">romanandwilliams.com →</a>
+      <a href="https://romanandwilliamsguild.com" target="_blank" style="font-size:12px; color:var(--taupe); letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--rule);">The Guild →</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="firm" id="green-river" style="background: var(--cream);">
+  <div class="firm-header">
+    <div class="firm-num">10</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://greenriverprojectllc.com" target="_blank">Green River Project</a></h2>
+      <p class="firm-location">Brooklyn</p>
+      <p class="firm-desc">Aaron Aujla and Benjamin Bloomstein started the studio in 2017 after a decade of making work as artists in New York. Furniture and rooms are researched the way a story is researched: a material, a place, a use, then the object. Private houses sit beside the yearly collections. The finish is rarely polite. Wood keeps its marks; the room feels as if it had been told something and remembered it.</p>
+      <p class="firm-desc" style="margin-top:10px; font-style:italic; color:#8a7f75;">Key references: artist-made furniture · narrative collections · raw timber and cloth</p>
+      <span class="firm-tag">Furniture · Interiors</span>
+    </div>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">West Village apartment</h3>
+      <p class="project-meta">New York · World of Interiors</p>
+      <p class="project-desc">A downtown apartment on their interiors index, photographed for World of Interiors. The rooms are spare in plan and dense in material — the studio's furniture doing the talking, surfaces left with the evidence of how they were made.</p>
+    </div>
+    <div class="gallery gallery-2">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://greenriverprojectllc.com/thumbs/interiors/west-village-apartment/59142_tmi_worldofinteriors_a2_07-2-1800x1418.jpg" alt="West Village apartment by Green River Project, World of Interiors" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://greenriverprojectllc.com/thumbs/interiors/west-village-apartment/59142_tmi_worldofinteriors_e6_09-1800x1472.jpg" alt="Interior of the West Village apartment by Green River Project" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">West Village apartment, New York &nbsp;·&nbsp; World of Interiors &nbsp;·&nbsp; <a href="https://greenriverprojectllc.com/interiors" target="_blank" style="color:var(--accent); text-decoration:none;">greenriverprojectllc.com →</a></p>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Bode, Melrose Avenue</h3>
+      <p class="project-meta">Los Angeles</p>
+      <p class="project-desc">The Melrose Avenue shop, filed with their interiors: a room built from the same appetite for raw material and a told story, scaled to retail without losing the hand.</p>
+    </div>
+    <div class="gallery gallery-2">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://greenriverprojectllc.com/thumbs/interiors/bode-7000-melrose-ave/bode_la-1-1800x1440.jpg" alt="Bode on Melrose Avenue, interior by Green River Project" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://greenriverprojectllc.com/thumbs/interiors/bode-7000-melrose-ave/bode_la-6-1800x1440.jpg" alt="Interior at Bode, Melrose Avenue, Green River Project" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">Bode, 7000 Melrose Avenue, Los Angeles &nbsp;·&nbsp; <a href="https://greenriverprojectllc.com/interiors" target="_blank" style="color:var(--accent); text-decoration:none;">greenriverprojectllc.com →</a></p>
+  </div>
+</section>
+
+
+<section class="theme" id="theme-restraint">
+  <p class="theme-kicker">Studios</p>
+  <h2 class="theme-title">Warm Restraint &amp; Quiet Materiality</h2>
+  <p class="theme-intro">Quiet rooms with a pulse: plaster, linen, stone, and light, held back just far enough that the atmosphere can do the work.</p>
+</section>
+
+
+<section class="firm" id="studioilse">
+  <div class="firm-header">
+    <div class="firm-num">11</div>
     <div class="firm-meta">
       <h2 class="firm-name"><a href="https://www.studioilse.com" target="_blank">Studioilse</a></h2>
       <p class="firm-location">London &nbsp;·&nbsp; Ilse Crawford</p>
@@ -1160,13 +1446,9 @@
 </section>
 
 
-<!-- ═══════════════════════════════════════ -->
-<!-- 09 ROSE UNIACKE                        -->
-<!-- London · Pimlico                       -->
-<!-- ═══════════════════════════════════════ -->
-<section class="firm" id="rose-uniacke">
+<section class="firm" id="rose-uniacke" style="background: var(--cream);">
   <div class="firm-header">
-    <div class="firm-num">09</div>
+    <div class="firm-num">12</div>
     <div class="firm-meta">
       <h2 class="firm-name"><a href="https://www.roseuniacke.com/interiors" target="_blank">Rose Uniacke</a></h2>
       <p class="firm-location">London, Pimlico &nbsp;·&nbsp; roseuniacke.com</p>
@@ -1246,115 +1528,276 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- 10  BEN PENTREATH                       -->
-<!-- ═══════════════════════════════════════ -->
-<section id="ben-pentreath" class="studio-section" style="background:var(--warm-white);">
+
+<section id="axel-vervoordt" class="studio-section">
   <div class="studio-header">
-    <p class="studio-eyebrow">Studio 10</p>
-    <h2 class="studio-name">Ben Pentreath</h2>
-    <p class="studio-location">London · Dorset</p>
+    <p class="studio-eyebrow">13</p>
+    <h2 class="studio-name">Axel Vervoordt</h2>
+    <p class="studio-location">Antwerp · Wijnegem · S'Gravenwezel</p>
   </div>
 
   <div class="project-card">
     <div class="project-card-text" style="max-width:640px;">
       <p class="project-card-eyebrow">Practice Overview</p>
-      <h3 class="project-card-title">The English House, Inhabited</h3>
-      <p class="project-card-body">Ben Pentreath Ltd. occupies a specific position in British interiors: deeply learned about the English domestic tradition — the country house, the rectory, the London terrace — but never reverent. His interiors layer chintz with plain linens, antique furniture with contemporary ceramics, botanical prints with bold colour. The shop Pentreath &amp; Hall in Bloomsbury extends the aesthetic into an edited selection of objects and fabrics. Work spans Georgian London townhouses, Dorset farmhouses, and projects in America and Europe.</p>
-      <p class="project-card-body" style="margin-top:12px;">Pentreath studied architecture, and it shows: his rooms are understood three-dimensionally, with particular attention to proportion, joinery detail, and the relationship between inside and garden. Recurrent motifs include panelled libraries in dark green or dark red, loose-covered sofas in ticking or faded floral, flagstone or worn oak underfoot, and walls hung with drawings and prints in casual arrangements.</p>
-      <p class="project-card-body" style="margin-top:12px; font-style:italic; color:#8a7f75;">Key references: English country house tradition · John Fowler · David Hicks · William Morris · Soane</p>
-      <a class="project-card-link" href="https://benpentreath.com" target="_blank">benpentreath.com →</a>
-    </div>
-  </div>
-
-  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-top:12px;">
-    <div class="placeholder-card"><span>Drawing Room<br/>Dark panelling, chintz, accumulated art</span></div>
-    <div class="placeholder-card"><span>Dorset Farmhouse<br/>Stone floors, country ease</span></div>
-    <div class="placeholder-card"><span>London Townhouse<br/>Georgian bones, layers of pattern</span></div>
-  </div>
-  <p class="img-label" style="margin-top:8px;">Representative typologies — see benpentreath.com for full portfolio</p>
-
-  <div style="margin-top:32px; padding-top:24px; border-top:1px solid var(--rule);">
-    <div style="display:flex; gap:24px; flex-wrap:wrap;">
-      <a href="https://benpentreath.com" target="_blank" style="font-size:12px; color:var(--taupe); letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--rule);">benpentreath.com →</a>
-      <a href="https://www.pentreath-hall.com" target="_blank" style="font-size:12px; color:var(--taupe); letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--rule);">Pentreath &amp; Hall Shop →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- 11  GRENNEY GREIG                       -->
-<!-- ═══════════════════════════════════════ -->
-<section id="grenney-greig" class="studio-section">
-  <div class="studio-header">
-    <p class="studio-eyebrow">Studio 11</p>
-    <h2 class="studio-name">Grenney Greig</h2>
-    <p class="studio-location">London · Tangier</p>
-  </div>
-
-  <div class="project-card">
-    <div class="project-card-text" style="max-width:640px;">
-      <p class="project-card-eyebrow">Practice Overview</p>
-      <h3 class="project-card-title">Maximalist Luxury, Deeply Layered</h3>
-      <p class="project-card-body">Rooted in the Colefax &amp; Fowler tradition, Grenney Greig brings an unabashedly rich, pattern-saturated approach to interior decoration. Rooms are understood as accumulations — of fabric, of object, of colour — built over time rather than conceived whole. Tangier provides a second frame of reference: North African pattern, local craft, the medina palette of saffron, indigo, and sienna overlaid on the quintessentially English.</p>
-      <p class="project-card-body" style="margin-top:12px;">Signature moves include draped curtains with deep pelmets, walls upholstered in fabric or covered floor-to-ceiling in pictures, rooms where every surface carries its own considered object. Light is controlled with shutters and lined curtains rather than engineered from without. The effect is intimate and deliberately unhurried.</p>
-      <p class="project-card-body" style="margin-top:12px; font-style:italic; color:#8a7f75;">Key references: John Fowler · Colefax tradition · Orientalist romanticism · Majorelle · Cecil Beaton</p>
-      <a class="project-card-link" href="https://www.grenneygreig.com" target="_blank">grenneygreig.com →</a>
+      <h3 class="project-card-title">Wabi &amp; Timelessness</h3>
+      <p class="project-card-body">Axel Vervoordt Company has operated from the Castle of 't Steen near Antwerp for decades, producing interiors that translate Japanese wabi-sabi philosophy into the European context. The aesthetic is one of disciplined restraint: raw plaster, aged timber, natural stone, linen, and hand-thrown ceramics — all in a palette of ash, straw, and faded earth. Antiques and contemporary art sit alongside each other without hierarchy, unified by the quality of material and the hand of time.</p>
+      <p class="project-card-body" style="margin-top:12px;">Vervoordt is also a significant gallerist and furniture dealer; the boundary between the shop, the showroom, and the design practice is deliberately porous. Hospitality commissions (Les Ottomans Istanbul, RFH Le Royal Monceau Paris) demonstrate that the approach scales to the institutional. The annual TEFAF booth has become a defining reference for how antique and contemporary objects can coexist without apology. His son Boris now leads the firm.</p>
+      <p class="project-card-body" style="margin-top:12px; font-style:italic; color:#8a7f75;">Key references: Wabi-sabi · Mingei movement · Axel's own art dealing practice · Mies van der Rohe restraint</p>
+      <a class="project-card-link" href="https://axel-vervoordt.com" target="_blank">axel-vervoordt.com →</a>
     </div>
   </div>
 
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px;">
-    <div class="placeholder-card" style="height:220px;"><span>London Drawing Room<br/>Deep colour, layered pattern, pelmets</span></div>
-    <div class="placeholder-card" style="height:220px;"><span>Tangier Riad<br/>Moorish detail, Orientalist collection</span></div>
+    <div class="placeholder-card" style="height:220px;"><span>Belgian Country House<br/>Raw plaster, aged oak, wabi restraint</span></div>
+    <div class="placeholder-card" style="height:220px;"><span>Venetian Palazzo<br/>Stone, water, centuries of patina</span></div>
   </div>
 
   <div style="margin-top:32px; padding-top:24px; border-top:1px solid var(--rule);">
     <div style="display:flex; gap:24px; flex-wrap:wrap;">
-      <a href="https://www.grenneygreig.com" target="_blank" style="font-size:12px; color:var(--taupe); letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--rule);">grenneygreig.com →</a>
+      <a href="https://axel-vervoordt.com" target="_blank" style="font-size:12px; color:var(--taupe); letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--rule);">axel-vervoordt.com →</a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- 12  STUDIO PEREGALLI                    -->
-<!-- ═══════════════════════════════════════ -->
-<section id="studio-peregalli" class="studio-section" style="background:var(--warm-white);">
+
+<section class="firm" id="atelier-vime" style="background: var(--cream);">
+  <div class="firm-header">
+    <div class="firm-num">14</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://ateliervime.com" target="_blank">Atelier Vime</a></h2>
+      <p class="firm-location">Vallabrègues, Provence</p>
+      <p class="firm-desc">Anthony Watson and Benoît Rauzy restored an eighteenth-century house on the Rhône and found, in the dust, that it had been a wicker workshop in a village that once wove for much of France. They replanted the willow, hired the remaining makers, and let limewash, reed, and old ceramics set the rooms. The result is not a show of craft. It is a house that remembered its trade and became generous about it. Vime, they note, is the Latin for flexible wood — osier.</p>
+      <p class="firm-desc" style="margin-top:10px; font-style:italic; color:#8a7f75;">Key references: limewash · Provençal wicker · eighteenth-century town house · revived local craft</p>
+      <span class="firm-tag">House · Wicker</span>
+    </div>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">The house and La Maison Vime</h3>
+      <p class="project-meta">Vallabrègues · eighteenth century</p>
+      <p class="project-desc">The hôtel particulier is their home. Next door, a former workshop they later bought is La Maison Vime, a seasonal shop set up as rooms you can walk through — new and old rattan, local ceramics, books. Summer salons in yellow limewash, courtyards left to weather. Remodelista's photographs of the shop are published courtesy of the studio; a single photographer is not named.</p>
+    </div>
+    <div class="gallery gallery-2">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://www.remodelista.com/wp-content/uploads/2022/07/atelier-vime-shop-provence-crop-1466x1066.jpg" alt="La Maison Vime, the seasonal shop beside Atelier Vime's house in Vallabrègues" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-tall">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://media.remodelista.com/wp-content/uploads/2022/07/atelier-vime-shop-provence-1a-733x977.jpg" alt="Room at La Maison Vime, Vallabrègues" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <div class="gallery gallery-2" style="margin-top:12px;">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://media.remodelista.com/wp-content/uploads/2022/07/atelier-vime-shop-boudoir-provence-3-733x916.jpg" alt="Bedroom at Atelier Vime, Vallabrègues" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://media.remodelista.com/wp-content/uploads/2022/07/atelier-vime-shop-courtyard-wayne-pate-ceramic-mural-8-733x882.jpg" alt="Courtyard at Atelier Vime, Vallabrègues, with a ceramic mural by Wayne Pate" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">La Maison Vime and the house, Vallabrègues &nbsp;·&nbsp; Photographs courtesy of Atelier Vime &nbsp;·&nbsp; Remodelista &nbsp;·&nbsp; <a href="https://ateliervime.com" target="_blank" style="color:var(--accent); text-decoration:none;">ateliervime.com →</a></p>
+  </div>
+</section>
+
+
+<section id="vincent-van-duysen" class="studio-section">
   <div class="studio-header">
-    <p class="studio-eyebrow">Studio 12</p>
-    <h2 class="studio-name">Studio Peregalli</h2>
-    <p class="studio-location">Milan</p>
+    <p class="studio-eyebrow">15</p>
+    <h2 class="studio-name">Vincent Van Duysen</h2>
+    <p class="studio-location">Antwerp, Belgium</p>
   </div>
 
   <div class="project-card">
     <div class="project-card-text" style="max-width:640px;">
       <p class="project-card-eyebrow">Practice Overview</p>
-      <h3 class="project-card-title">Archaeological Luxury</h3>
-      <p class="project-card-body">Roberto Peregalli and Laura Sartori Rimini run the most erudite decorating practice currently active. Working from Milan, they produce interiors of extraordinary historical density — rooms in which Venetian plaster, silk damask, painted trompe-l'oeil, lacquered furniture, and layered antiques converge into something simultaneously ancient and alive. Their visual references span Baroque Rome, Biedermeier Vienna, and the grandest moments of European interior history.</p>
-      <p class="project-card-body" style="margin-top:12px;">Each project begins with research: into the building's period, the client's family and collecting history, regional craft traditions. The resulting rooms are dense with specific knowledge. Peregalli and Sartori Rimini have published two books — <em>The Presence of the Past</em> and <em>The Slow World of Roberto Peregalli</em> — that provide essential reference for anyone drawn to this order of decoration. Frequent collaborations with craftspeople in Venice, Florence, and the Milanese workshops of furniture-makers and fabric houses sustain a level of bespoke execution rarely attempted elsewhere.</p>
-      <p class="project-card-body" style="margin-top:12px; font-style:italic; color:#8a7f75;">Key references: Renzo Mongiardino · Alvar Aalto · Biedermeier · Venetian Baroque · Trompe-l'oeil tradition</p>
-      <a class="project-card-link" href="https://www.studioperegalli.com" target="_blank">studioperegalli.com →</a>
+      <h3 class="project-card-title">Serene Materiality</h3>
+      <p class="project-card-body">Vincent Van Duysen Architects produces what is arguably the most refined residential architecture-and-interiors practice working in Belgium today. His projects — often in converted farmhouses, industrial buildings, or newly built villas — are defined by monolithic calm: plaster, stone, concrete, linen, and dark-stained timber deployed in massive, unhurried compositions. Light enters in long horizontal bands; surfaces wear their age; rooms breathe.</p>
+      <p class="project-card-body" style="margin-top:12px;">Van Duysen was creative director of Molteni&amp;C (2016–22), translating the studio aesthetic into furniture at scale. The furniture is as important as the architecture: his pieces for Molteni, RH, and various collaborators share the same interest in mass, proportion, and material patina. A project by VVD invariably uses his own furniture alongside antiques — a bed frame in oxidised brass, a sofa in undyed linen, a dining table in solid travertine — making the whole indivisible from the parts.</p>
+      <p class="project-card-body" style="margin-top:12px; font-style:italic; color:#8a7f75;">Key references: Minimalism with warmth · Belgian vernacular · John Pawson discipline · Axel Vervoordt restraint · Molteni&amp;C collaboration</p>
+      <a class="project-card-link" href="https://www.vincentvanduysen.com" target="_blank">vincentvanduysen.com →</a>
     </div>
   </div>
 
   <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-top:12px;">
-    <div class="placeholder-card"><span>Milan Apartment<br/>Silk walls, painted ceilings, antiques</span></div>
-    <div class="placeholder-card"><span>Venetian Palace<br/>Trompe-l'oeil, Baroque density</span></div>
-    <div class="placeholder-card"><span>Country Villa<br/>Neoclassical rigour, local craft</span></div>
+    <div class="placeholder-card"><span>Belgian Farmhouse<br/>Plaster, stone, calm proportion</span></div>
+    <div class="placeholder-card"><span>Mediterranean Villa<br/>Raked concrete, sea light</span></div>
+    <div class="placeholder-card"><span>Antwerp Townhouse<br/>Raw materiality, antique objects</span></div>
   </div>
 
   <div style="margin-top:32px; padding-top:24px; border-top:1px solid var(--rule);">
     <div style="display:flex; gap:24px; flex-wrap:wrap;">
-      <a href="https://www.studioperegalli.com" target="_blank" style="font-size:12px; color:var(--taupe); letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--rule);">studioperegalli.com →</a>
+      <a href="https://www.vincentvanduysen.com" target="_blank" style="font-size:12px; color:var(--taupe); letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--rule);">vincentvanduysen.com →</a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- 13  BEATA HEUMAN                        -->
-<!-- ═══════════════════════════════════════ -->
+
+<section class="theme" id="theme-color">
+  <p class="theme-kicker">Studios</p>
+  <h2 class="theme-title">Collected Color &amp; Pattern</h2>
+  <p class="theme-intro">Pattern used as memory, not decoration — rooms that feel gathered over years, with a wink and a sure hand.</p>
+</section>
+
+
+<section class="firm" id="reath-design" style="background: var(--cream);">
+  <div class="firm-header">
+    <div class="firm-num">16</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://www.reathdesign.com" target="_blank">Reath Design</a></h2>
+      <p class="firm-location">Los Angeles, CA &nbsp;·&nbsp; Frances Merrill</p>
+      <p class="firm-desc">Frances Merrill founded Reath Design in 2009 after working at Commune Design, and her studio is everything Commune is — but more layered, more personal. She uses wallpaper with abandon, mixes pattern and texture across eras, and brings an art-world sensibility that keeps rooms from tipping into decoration. Her bathrooms are known for a strong material gesture — graphic tile, a slab of book-matched marble, warm wood — held in tension with something unexpected: a vintage fixture, an odd color, a print that shouldn't work but does. Quiet confidence with a wink.</p>
+      <span class="firm-tag">Interior Design</span>
+    </div>
+  </div>
+
+  <!-- Row 1: Powder room hero + Point Dume -->
+  <div class="gallery gallery-2" style="gap:12px; margin-bottom: 12px;">
+    <div class="img-wrap img-tall">
+      <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2025/03/07.-Powder-Room-Reath_Portland6035Final.jpg"
+           alt="Portland Residence — Powder Room, Reath Design"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div style="display: grid; grid-template-rows: 1fr 1fr; gap: 12px;">
+      <div class="img-wrap">
+        <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/08/PointDume.2.jpg"
+             alt="Point Dume, Malibu — Interior, Reath Design"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap">
+        <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/08/PointDume.1.jpg"
+             alt="Point Dume, Malibu — Interior, Reath Design"
+             onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2: Supporting rooms -->
+  <div class="gallery gallery-2" style="gap:12px;">
+    <div class="img-wrap img-wide">
+      <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/08/SantaMonica.1.jpg"
+           alt="Santa Monica Beach House, Reath Design"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-wide">
+      <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/08/ReathDesign_PointDume_kitchen.jpg"
+           alt="Point Dume Kitchen, Reath Design"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+  <p class="img-label" style="margin-top:12px;">Portland Residence (powder room) &nbsp;·&nbsp; Point Dume, Malibu &nbsp;·&nbsp; Santa Monica Beach House &nbsp;·&nbsp; Reath Design by Frances Merrill &nbsp;·&nbsp; Via 1stDibs Introspective</p>
+</section>
+
+
+<section class="firm" id="commune-design">
+  <div class="firm-header">
+    <div class="firm-num">17</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://www.communedesign.com" target="_blank">Commune Design</a></h2>
+      <p class="firm-location">Los Angeles, CA &nbsp;·&nbsp; Roman Alonso &amp; Steven Johanknecht</p>
+      <p class="firm-desc">Commune is where Frances Merrill trained — a studio built on mid-century reference, material honesty, and an unfussy California sensibility. Their West Marin Retreat (above Tomales Bay) is a study in restraint with personality: limewashed walls, local craftwork, Edith Heath and Josef Frank tile in the bathrooms, and furniture by JB Blunk. Mid-century Scandinavian summer house meets Northern California landscape. Color and pattern turned up just enough.</p>
+      <span class="firm-tag">Interior Design + Architecture</span>
+    </div>
+  </div>
+
+  <!-- Row 1: 3-up -->
+  <div class="gallery gallery-3" style="gap:12px; margin-bottom: 12px;">
+    <div class="img-wrap img-tall">
+      <img loading="lazy" decoding="async" src="https://images.ctfassets.net/k1tan84lsd0d/1GYDARYtgLgcnJ0tZuWF3T/8d0e96127a5597d794d7f7e5431724c5/CommuneInverness1204Final.jpg?w=900"
+           alt="West Marin Retreat — Interior, Commune Design"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img loading="lazy" decoding="async" src="https://images.ctfassets.net/k1tan84lsd0d/52kzMJz1n5qpvw6VWJCR0R/a4475d287f02b142f024a4a510f05bd5/CommuneInverness0197Final.jpg?w=900"
+           alt="West Marin Retreat — Interior, Commune Design"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img loading="lazy" decoding="async" src="https://images.ctfassets.net/k1tan84lsd0d/2ptV8RjEV3n9GLWfN81Zh8/8b03ac8b7158f881b6682704e108de5c/CommuneInverness0800Final.jpg?w=900"
+           alt="West Marin Retreat — Interior, Commune Design"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+
+  <!-- Row 2: wide panoramic -->
+  <div class="gallery gallery-2" style="gap:12px;">
+    <div class="img-wrap img-wide">
+      <img loading="lazy" decoding="async" src="https://images.ctfassets.net/k1tan84lsd0d/mcusRsQlDJMKwwpNzpOjy/a5c53a8f92718a7938e699bcba782085/CommuneInverness1006Final.jpg?w=900"
+           alt="West Marin Retreat — Interior, Commune Design"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-wide">
+      <img loading="lazy" decoding="async" src="https://images.ctfassets.net/k1tan84lsd0d/iHi8N5TGNIE88QSnIPZp2/c2b7b0750daf2090a13dd1a85cceb6a4/CommuneInverness0862Final.jpg?w=1800"
+           alt="West Marin Retreat — Interior, Commune Design"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+  <p class="img-label" style="margin-top:12px;">West Marin Retreat, Tomales Bay, CA &nbsp;·&nbsp; Commune Design &nbsp;·&nbsp; Bathrooms: Edith Heath + Josef Frank tile</p>
+</section>
+
+
+<section class="firm" id="nickey-kehoe" style="background: var(--cream);">
+  <div class="firm-header">
+    <div class="firm-num">18</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://nickeykehoe.com/blogs/portfolio" target="_blank">Nickey Kehoe</a></h2>
+      <p class="firm-location">Los Angeles · New York &nbsp;·&nbsp; Todd Nickey &amp; Amy Kehoe</p>
+      <p class="firm-desc">Todd Nickey and Amy Kehoe run one of LA's most quietly distinctive studios — color-forward without being obvious, eclectic without being chaotic. Their interiors pull from textile history, vintage finds, and their own NK Collection to build rooms that feel genuinely inhabited. Bathrooms feature custom onyx or stone vanities, wallpaper murals (often Gracie Studio), and materials that age well: unlacquered brass, honed surfaces, richly grained wood. Bespoke and considered, never trend-driven.</p>
+      <span class="firm-tag">Interior Design</span>
+    </div>
+  </div>
+
+  <!-- Row 1: Brentwood -->
+  <div class="gallery gallery-3" style="gap:12px; margin-bottom: 12px;">
+    <div class="img-wrap img-tall">
+      <img loading="lazy" decoding="async" src="https://cdn.shopify.com/s/files/1/1713/4363/files/DArnold_021026_NickeyKehoe_17781_web.jpg?v=1777053484"
+           alt="Brentwood Residence, Nickey Kehoe"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img loading="lazy" decoding="async" src="https://cdn.shopify.com/s/files/1/1713/4363/files/DArnold_021026_NickeyKehoe_18132_web.jpg?v=1777053485"
+           alt="Brentwood Residence, Nickey Kehoe"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img loading="lazy" decoding="async" src="https://cdn.shopify.com/s/files/1/1713/4363/files/DArnold_021026_NickeyKehoe_18302_edit_web.jpg?v=1777053484"
+           alt="Brentwood Residence, Nickey Kehoe"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+
+  <!-- Row 2: Santa Monica Canyon -->
+  <div class="gallery gallery-2" style="gap:12px;">
+    <div class="img-wrap img-wide">
+      <img loading="lazy" decoding="async" src="https://cdn.shopify.com/s/files/1/1713/4363/files/NK-Rustic_Canyon-5.jpg?v=1757976310"
+           alt="Santa Monica Canyon, Nickey Kehoe"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-wide">
+      <img loading="lazy" decoding="async" src="https://cdn.shopify.com/s/files/1/1713/4363/files/NK-Rustic_Canyon-4.jpg?v=1757976314"
+           alt="Santa Monica Canyon, Nickey Kehoe"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+
+  <!-- Row 3: More Brentwood -->
+  <div class="gallery gallery-2" style="gap:12px; margin-top: 12px;">
+    <div class="img-wrap img-wide">
+      <img loading="lazy" decoding="async" src="https://cdn.shopify.com/s/files/1/1713/4363/files/DArnold_021026_NickeyKehoe_17734_web.jpg?v=1777053482"
+           alt="Brentwood Residence, Nickey Kehoe"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-wide">
+      <img loading="lazy" decoding="async" src="https://cdn.shopify.com/s/files/1/1713/4363/files/NK-Rustic_Canyon-2.jpg?v=1757976309"
+           alt="Santa Monica Canyon, Nickey Kehoe"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+  <p class="img-label" style="margin-top:12px;">Brentwood Residence &amp; Santa Monica Canyon &nbsp;·&nbsp; Nickey Kehoe &nbsp;·&nbsp; Photography: D. Arnold</p>
+</section>
+
+
 <section id="beata-heuman" class="studio-section">
   <div class="studio-header">
-    <p class="studio-eyebrow">Studio 13</p>
+    <p class="studio-eyebrow">19</p>
     <h2 class="studio-name">Beata Heuman</h2>
     <p class="studio-location">London · 188 Hammersmith Road</p>
   </div>
@@ -1462,45 +1905,310 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- 14  AXEL VERVOORDT                      -->
-<!-- ═══════════════════════════════════════ -->
-<section id="axel-vervoordt" class="studio-section" style="background:var(--warm-white);">
+
+<section id="studio-ashby" class="studio-section" style="background: var(--cream);">
   <div class="studio-header">
-    <p class="studio-eyebrow">Studio 14</p>
-    <h2 class="studio-name">Axel Vervoordt</h2>
-    <p class="studio-location">Antwerp · Wijnegem · S'Gravenwezel</p>
+    <p class="studio-eyebrow">20</p>
+    <h2 class="studio-name">Studio Ashby</h2>
+    <p class="studio-location">London</p>
   </div>
 
   <div class="project-card">
     <div class="project-card-text" style="max-width:640px;">
       <p class="project-card-eyebrow">Practice Overview</p>
-      <h3 class="project-card-title">Wabi &amp; Timelessness</h3>
-      <p class="project-card-body">Axel Vervoordt Company has operated from the Castle of 't Steen near Antwerp for decades, producing interiors that translate Japanese wabi-sabi philosophy into the European context. The aesthetic is one of disciplined restraint: raw plaster, aged timber, natural stone, linen, and hand-thrown ceramics — all in a palette of ash, straw, and faded earth. Antiques and contemporary art sit alongside each other without hierarchy, unified by the quality of material and the hand of time.</p>
-      <p class="project-card-body" style="margin-top:12px;">Vervoordt is also a significant gallerist and furniture dealer; the boundary between the shop, the showroom, and the design practice is deliberately porous. Hospitality commissions (Les Ottomans Istanbul, RFH Le Royal Monceau Paris) demonstrate that the approach scales to the institutional. The annual TEFAF booth has become a defining reference for how antique and contemporary objects can coexist without apology. His son Boris now leads the firm.</p>
-      <p class="project-card-body" style="margin-top:12px; font-style:italic; color:#8a7f75;">Key references: Wabi-sabi · Mingei movement · Axel's own art dealing practice · Mies van der Rohe restraint</p>
-      <a class="project-card-link" href="https://axel-vervoordt.com" target="_blank">axel-vervoordt.com →</a>
+      <h3 class="project-card-title">Colour, Craft, Personal History</h3>
+      <p class="project-card-body">Sophie Ashby launched Studio Ashby in 2012 and rapidly established a distinct position among London's younger decorators: intensely personal spaces charged with colour and personal narrative, yet grounded in serious research into craft and material. Projects frequently reference a client's cultural background or family history — rooms that feel as if they grew from a life rather than a brief.</p>
+      <p class="project-card-body" style="margin-top:12px;">The studio works across private residences, hospitality (Granger &amp; Co., various hotel projects), and cultural institutions. The characteristic visual language: deep rich walls (terracotta, forest green, inky blue), custom rugs designed for each project, considered lighting with shaded pendants and sconces, furniture mixing bespoke commissions with carefully sourced mid-century and antique pieces, and consistently strong artwork integration — many commissions placed directly with artists. Has been an active collaborator with numerous British and global craft studios.</p>
+      <p class="project-card-body" style="margin-top:12px; font-style:italic; color:#8a7f75;">Key references: Contemporary British craft · Indian textile tradition · Colour theory (David Hicks lineage) · Storytelling interiors</p>
+      <a class="project-card-link" href="https://www.studioashby.com" target="_blank">studioashby.com →</a>
     </div>
   </div>
 
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px;">
-    <div class="placeholder-card" style="height:220px;"><span>Belgian Country House<br/>Raw plaster, aged oak, wabi restraint</span></div>
-    <div class="placeholder-card" style="height:220px;"><span>Venetian Palazzo<br/>Stone, water, centuries of patina</span></div>
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-top:12px;">
+    <div class="placeholder-card"><span>London Family Home<br/>Rich colour, craft commissions, personal art</span></div>
+    <div class="placeholder-card"><span>Country House<br/>Pattern, texture, English garden</span></div>
+    <div class="placeholder-card"><span>City Apartment<br/>Terracotta walls, custom rugs, bespoke joinery</span></div>
   </div>
 
   <div style="margin-top:32px; padding-top:24px; border-top:1px solid var(--rule);">
     <div style="display:flex; gap:24px; flex-wrap:wrap;">
-      <a href="https://axel-vervoordt.com" target="_blank" style="font-size:12px; color:var(--taupe); letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--rule);">axel-vervoordt.com →</a>
+      <a href="https://www.studioashby.com" target="_blank" style="font-size:12px; color:var(--taupe); letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--rule);">studioashby.com →</a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- 15  KEN FULK                          -->
-<!-- ═══════════════════════════════════════ -->
-<section id="ken-fulk" class="studio-section" style="background:var(--warm-white);">
+
+<section class="firm" id="arent-pyke">
+  <div class="firm-header">
+    <div class="firm-num">21</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://arentpyke.com" target="_blank">Arent&amp;Pyke</a></h2>
+      <p class="firm-location">Sydney &amp; Melbourne, Australia &nbsp;·&nbsp; Juliette Arent &amp; Sarah-Jane Pyke</p>
+      <p class="firm-desc">Juliette Arent and Sarah-Jane Pyke are among the most decorated interior designers in Australia and have become genuine international figures — regulars in World of Interiors, Vogue Living, and Elle Decoration, with a monograph published by Thames &amp; Hudson. Their work is defined by an extraordinary layering of material, art, object, and memory: rooms that feel genuinely inhabited by specific people with specific pasts. Vintage finds and design classics appear alongside custom fabrication; color is used with restraint and confidence simultaneously. Their bathrooms are benchmark work — arched stone frames, freestanding baths, joinery floating above stone floors, custom marble islands. Nothing accidental; everything thought through in minute detail.</p>
+      <span class="firm-tag">Interior Design · Custom Fabrication · Art Curation</span>
+    </div>
+  </div>
+
+  <!-- Bradleys Head House (Mosman NSW) -->
+  <div class="gallery gallery-3" style="gap:12px; margin-bottom:12px;">
+    <div class="img-wrap img-tall">
+      <img loading="lazy" decoding="async" src="https://arentpyke.com/media/cache/5b150ef22a292d82ff93507d6bab7888cf43ac63.jpg"
+           alt="Bradleys Head House — Arent&amp;Pyke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img loading="lazy" decoding="async" src="https://arentpyke.com/media/cache/1749fb4071ad1f2682f35d860aa3571bf1ea09ea.jpg"
+           alt="Bradleys Head House — Arent&amp;Pyke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img loading="lazy" decoding="async" src="https://arentpyke.com/media/cache/baa93df6916181597ee06999dc1aaa2de91ea5ed.jpg"
+           alt="Bradleys Head House — Arched Ensuite, Arent&amp;Pyke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+  <div class="gallery gallery-2" style="gap:12px; margin-bottom:12px;">
+    <div class="img-wrap img-wide">
+      <img loading="lazy" decoding="async" src="https://arentpyke.com/media/cache/83db6cdf5d4feb6596e75aa735fcc84900d78d6d.jpg"
+           alt="Bradleys Head House — Living Room, Arent&amp;Pyke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-wide">
+      <img loading="lazy" decoding="async" src="https://arentpyke.com/media/cache/fcb973902024141b3364db6cfa257c7c7276cfb0.jpg"
+           alt="Bradleys Head House — Kitchen, Arent&amp;Pyke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+  <p class="img-label" style="margin-bottom:28px;">Bradleys Head House, Mosman NSW &nbsp;·&nbsp; Architecture: TKD Architects &nbsp;·&nbsp; Photography: Anson Smart</p>
+
+  <!-- Golden Light (Lower North Shore Sydney) -->
+  <div class="gallery gallery-3" style="gap:12px; margin-bottom:12px;">
+    <div class="img-wrap img-tall">
+      <img loading="lazy" decoding="async" src="https://arentpyke.com/media/cache/52d70842d0b0fe7ba0490e3684ec5fb180840133.jpg"
+           alt="Golden Light — Arent&amp;Pyke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img loading="lazy" decoding="async" src="https://arentpyke.com/media/cache/b82058d9d86868acf8e5b8618f7893ed2be4a0fb.jpg"
+           alt="Golden Light — Marigold Sitting Room, Arent&amp;Pyke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img loading="lazy" decoding="async" src="https://arentpyke.com/media/cache/8022fb508f06c4d91cc7c7d91e430d1100351252.jpg"
+           alt="Golden Light — Dining, Arent&amp;Pyke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+  <div class="gallery gallery-2" style="gap:12px;">
+    <div class="img-wrap img-wide">
+      <img loading="lazy" decoding="async" src="https://arentpyke.com/media/cache/40638869872d7970c3e06764cc555baf10b0a8e0.jpg"
+           alt="Golden Light — Primary Suite, Arent&amp;Pyke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-wide">
+      <img loading="lazy" decoding="async" src="https://arentpyke.com/media/cache/534c0fffb5eba2841053d41b89f91e04ad7e1efe.jpg"
+           alt="Golden Light — Interior, Arent&amp;Pyke"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+  <p class="img-label" style="margin-top:12px;">Golden Light, Lower North Shore, Sydney &nbsp;·&nbsp; Photography: Anson Smart &nbsp;·&nbsp; Styling: Jack Milenkovic</p>
+</section>
+
+
+<section class="firm" id="studio-valle" style="background: var(--cream);">
+  <div class="firm-header">
+    <div class="firm-num">22</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://valledevalle.com" target="_blank">Studio Valle de Valle</a></h2>
+      <p class="firm-location">New York</p>
+      <p class="firm-desc">Formerly Giancarlo Valle, the studio describes its rooms as playful, studied, and unexpected — a whole practice of interiors, furniture, and objects, not a look applied at the end. Color arrives as a considered note (a moss headboard, an olive rug) against houses that still have their paneling and their manners. Friends' work is invited in. The effect is collected, never formulaic.</p>
+      <p class="firm-desc" style="margin-top:10px; font-style:italic; color:#8a7f75;">Key references: playful, studied, unexpected · New England houses · furniture designed with the room</p>
+      <span class="firm-tag">Interior Design</span>
+    </div>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Litchfield Hills Country House</h3>
+      <p class="project-meta">Northwest Connecticut · 1863</p>
+      <p class="project-desc">A three-year restoration, designed with Jane Valle, of an 1863 former parsonage. Original paneling on thickened walls; a wraparound workbench hiding the kitchen's formality. Ceramic medallions by Matt Merkel Hess play off Federal wallpaper found under paint. Green River Project chairs and a table in the mix. Goethe, they quote, thought green was for rooms one lives in constantly.</p>
+    </div>
+    <div class="gallery gallery-2">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://valledevalle.com/cdn/shop/files/Valle_AD_Litchfield_SKJ_20_Website.jpg?v=1696346430&amp;width=2000" alt="Litchfield Hills Country House by Studio Valle de Valle" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://valledevalle.com/cdn/shop/files/Valle_AD_Litchfield_SKJ_16_Website.jpg?width=2000" alt="Interior of the Litchfield Hills Country House" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">Litchfield Hills Country House, Connecticut &nbsp;·&nbsp; Photography: Stephen Kent Johnson &nbsp;·&nbsp; <a href="https://valledevalle.com/pages/litchfield-hills-country-house" target="_blank" style="color:var(--accent); text-decoration:none;">valledevalle.com →</a></p>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Seaside Estate</h3>
+      <p class="project-meta">Watch Hill, Rhode Island</p>
+      <p class="project-desc">The studio's own line for it: a reimagining of two minds, New England vernacular threaded with mid-century classicism, each informing the other. The house keeps the seaside manners and lets a later century loosen them.</p>
+    </div>
+    <div class="gallery gallery-2">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://valledevalle.com/cdn/shop/files/AD_Valle_WatchHill_SKJ_41.jpg?v=1695848749&amp;width=2000" alt="Seaside Estate in Watch Hill, Rhode Island, by Studio Valle de Valle" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://valledevalle.com/cdn/shop/files/AD_Valle_WatchHill_SKJ_10.jpg?width=2000" alt="Interior of the Watch Hill house by Studio Valle de Valle" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">Seaside Estate, Watch Hill, RI &nbsp;·&nbsp; Photography: Stephen Kent Johnson &nbsp;·&nbsp; <a href="https://valledevalle.com/pages/seaside-estate" target="_blank" style="color:var(--accent); text-decoration:none;">valledevalle.com →</a></p>
+  </div>
+</section>
+
+
+<section class="theme" id="theme-historic">
+  <p class="theme-kicker">Studios</p>
+  <h2 class="theme-title">Maximalist &amp; Historic Layering</h2>
+  <p class="theme-intro">History worn lightly and thickly at once: the English house, the layered room, the pleasure of things that have already lived.</p>
+</section>
+
+
+<section id="ben-pentreath" class="studio-section">
   <div class="studio-header">
-    <p class="studio-eyebrow">Studio 15</p>
+    <p class="studio-eyebrow">23</p>
+    <h2 class="studio-name">Ben Pentreath</h2>
+    <p class="studio-location">London · Dorset</p>
+  </div>
+
+  <div class="project-card">
+    <div class="project-card-text" style="max-width:640px;">
+      <p class="project-card-eyebrow">Practice Overview</p>
+      <h3 class="project-card-title">The English House, Inhabited</h3>
+      <p class="project-card-body">Ben Pentreath Ltd. occupies a specific position in British interiors: deeply learned about the English domestic tradition — the country house, the rectory, the London terrace — but never reverent. His interiors layer chintz with plain linens, antique furniture with contemporary ceramics, botanical prints with bold colour. The shop Pentreath &amp; Hall in Bloomsbury extends the aesthetic into an edited selection of objects and fabrics. Work spans Georgian London townhouses, Dorset farmhouses, and projects in America and Europe.</p>
+      <p class="project-card-body" style="margin-top:12px;">Pentreath studied architecture, and it shows: his rooms are understood three-dimensionally, with particular attention to proportion, joinery detail, and the relationship between inside and garden. Recurrent motifs include panelled libraries in dark green or dark red, loose-covered sofas in ticking or faded floral, flagstone or worn oak underfoot, and walls hung with drawings and prints in casual arrangements.</p>
+      <p class="project-card-body" style="margin-top:12px; font-style:italic; color:#8a7f75;">Key references: English country house tradition · John Fowler · David Hicks · William Morris · Soane</p>
+      <a class="project-card-link" href="https://benpentreath.com" target="_blank">benpentreath.com →</a>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-top:12px;">
+    <div class="placeholder-card"><span>Drawing Room<br/>Dark panelling, chintz, accumulated art</span></div>
+    <div class="placeholder-card"><span>Dorset Farmhouse<br/>Stone floors, country ease</span></div>
+    <div class="placeholder-card"><span>London Townhouse<br/>Georgian bones, layers of pattern</span></div>
+  </div>
+  <p class="img-label" style="margin-top:8px;">Representative typologies — see benpentreath.com for full portfolio</p>
+
+  <div style="margin-top:32px; padding-top:24px; border-top:1px solid var(--rule);">
+    <div style="display:flex; gap:24px; flex-wrap:wrap;">
+      <a href="https://benpentreath.com" target="_blank" style="font-size:12px; color:var(--taupe); letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--rule);">benpentreath.com →</a>
+      <a href="https://www.pentreath-hall.com" target="_blank" style="font-size:12px; color:var(--taupe); letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--rule);">Pentreath &amp; Hall Shop →</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="firm" id="max-rollitt" style="background: var(--cream);">
+  <div class="firm-header">
+    <div class="firm-num">24</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://www.maxrollitt.com" target="_blank">Max Rollitt</a></h2>
+      <p class="firm-location">Hampshire, England</p>
+      <p class="firm-desc">Max Rollitt is a decorator, a furniture maker, and a dealer, all of it under one roof at Yavington Barn, a former grain store in the Hampshire fields. He trained at the bench, and it shows: antiques chosen for character rather than period, new pieces made in the workshop, rooms that are allowed to look lived in. English country comfort, with a sense of humor that keeps the history from going stiff. A New England gabled house in Vermont — a new build he joined early enough to shape the bones — is underway, due in 2026; the pictures here are of a finished American house.</p>
+      <p class="firm-desc" style="margin-top:10px; font-style:italic; color:#8a7f75;">Key references: English country house · antiques and bespoke furniture · houses that feel already lived in</p>
+      <span class="firm-tag">Interiors · Antiques · Furniture</span>
+    </div>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">New England house</h3>
+      <p class="project-meta">Massachusetts · with Peter Pennoyer Architects</p>
+      <p class="project-desc">A 1912 seaside house — American Renaissance, carved by Italian stonemasons, more chateau than cottage — restored with Peter Pennoyer Architects after the clients bought it in 2015. Rollitt's task was to make the theatrical rooms habitable: not a return to Edwardian velvet, and not modern furniture fighting the architecture. French and English neoclassical pieces for the formal rooms, Renaissance notes where the building asked, comfort winning over display. House &amp; Garden and Architectural Digest both published it.</p>
+    </div>
+    <div class="gallery gallery-2">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://media.houseandgarden.co.uk/photos/62a20b09fc4670effc782320/original/w_1600,c_limit/SU877_Lilliothea_Foyer3_V2_Hero%20copy.jpg" alt="Foyer of a Massachusetts house decorated by Max Rollitt" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://media.houseandgarden.co.uk/photos/62a20afbdf4befe24c23bb67/original/w_1600,c_limit/SU877_Lilliothea_DrawingRm2_Hero%20copy.jpg" alt="Drawing room of the Massachusetts house by Max Rollitt" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <div class="gallery gallery-2" style="margin-top:12px;">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://media.houseandgarden.co.uk/photos/62d5723a51823364731a2eae/original/w_1600,c_limit/SU877_Lilliothea_Kitchen4_Hero%20copy.jpg" alt="Kitchen of the Massachusetts house by Max Rollitt" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://media.houseandgarden.co.uk/photos/62d57251adcdcc08308fbf28/original/w_1600,c_limit/SU877_Lilliothea_MusicRm_Hero%20copy.jpg" alt="Music room of the Massachusetts house by Max Rollitt" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">New England house, Massachusetts &nbsp;·&nbsp; Photography: Simon Upton &nbsp;·&nbsp; House &amp; Garden &nbsp;·&nbsp; <a href="https://www.maxrollitt.com/interiors/projects/new-england-mansion/" target="_blank" style="color:var(--accent); text-decoration:none;">maxrollitt.com →</a></p>
+  </div>
+</section>
+
+
+<section id="grenney-greig" class="studio-section">
+  <div class="studio-header">
+    <p class="studio-eyebrow">25</p>
+    <h2 class="studio-name">Grenney Greig</h2>
+    <p class="studio-location">London · Tangier</p>
+  </div>
+
+  <div class="project-card">
+    <div class="project-card-text" style="max-width:640px;">
+      <p class="project-card-eyebrow">Practice Overview</p>
+      <h3 class="project-card-title">Maximalist Luxury, Deeply Layered</h3>
+      <p class="project-card-body">Rooted in the Colefax &amp; Fowler tradition, Grenney Greig brings an unabashedly rich, pattern-saturated approach to interior decoration. Rooms are understood as accumulations — of fabric, of object, of colour — built over time rather than conceived whole. Tangier provides a second frame of reference: North African pattern, local craft, the medina palette of saffron, indigo, and sienna overlaid on the quintessentially English.</p>
+      <p class="project-card-body" style="margin-top:12px;">Signature moves include draped curtains with deep pelmets, walls upholstered in fabric or covered floor-to-ceiling in pictures, rooms where every surface carries its own considered object. Light is controlled with shutters and lined curtains rather than engineered from without. The effect is intimate and deliberately unhurried.</p>
+      <p class="project-card-body" style="margin-top:12px; font-style:italic; color:#8a7f75;">Key references: John Fowler · Colefax tradition · Orientalist romanticism · Majorelle · Cecil Beaton</p>
+      <a class="project-card-link" href="https://www.grenneygreig.com" target="_blank">grenneygreig.com →</a>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px;">
+    <div class="placeholder-card" style="height:220px;"><span>London Drawing Room<br/>Deep colour, layered pattern, pelmets</span></div>
+    <div class="placeholder-card" style="height:220px;"><span>Tangier Riad<br/>Moorish detail, Orientalist collection</span></div>
+  </div>
+
+  <div style="margin-top:32px; padding-top:24px; border-top:1px solid var(--rule);">
+    <div style="display:flex; gap:24px; flex-wrap:wrap;">
+      <a href="https://www.grenneygreig.com" target="_blank" style="font-size:12px; color:var(--taupe); letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--rule);">grenneygreig.com →</a>
+    </div>
+  </div>
+</section>
+
+
+<section id="studio-peregalli" class="studio-section" style="background: var(--cream);">
+  <div class="studio-header">
+    <p class="studio-eyebrow">26</p>
+    <h2 class="studio-name">Studio Peregalli</h2>
+    <p class="studio-location">Milan</p>
+  </div>
+
+  <div class="project-card">
+    <div class="project-card-text" style="max-width:640px;">
+      <p class="project-card-eyebrow">Practice Overview</p>
+      <h3 class="project-card-title">Archaeological Luxury</h3>
+      <p class="project-card-body">Roberto Peregalli and Laura Sartori Rimini run the most erudite decorating practice currently active. Working from Milan, they produce interiors of extraordinary historical density — rooms in which Venetian plaster, silk damask, painted trompe-l'oeil, lacquered furniture, and layered antiques converge into something simultaneously ancient and alive. Their visual references span Baroque Rome, Biedermeier Vienna, and the grandest moments of European interior history.</p>
+      <p class="project-card-body" style="margin-top:12px;">Each project begins with research: into the building's period, the client's family and collecting history, regional craft traditions. The resulting rooms are dense with specific knowledge. Peregalli and Sartori Rimini have published two books — <em>The Presence of the Past</em> and <em>The Slow World of Roberto Peregalli</em> — that provide essential reference for anyone drawn to this order of decoration. Frequent collaborations with craftspeople in Venice, Florence, and the Milanese workshops of furniture-makers and fabric houses sustain a level of bespoke execution rarely attempted elsewhere.</p>
+      <p class="project-card-body" style="margin-top:12px; font-style:italic; color:#8a7f75;">Key references: Renzo Mongiardino · Alvar Aalto · Biedermeier · Venetian Baroque · Trompe-l'oeil tradition</p>
+      <a class="project-card-link" href="https://www.studioperegalli.com" target="_blank">studioperegalli.com →</a>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-top:12px;">
+    <div class="placeholder-card"><span>Milan Apartment<br/>Silk walls, painted ceilings, antiques</span></div>
+    <div class="placeholder-card"><span>Venetian Palace<br/>Trompe-l'oeil, Baroque density</span></div>
+    <div class="placeholder-card"><span>Country Villa<br/>Neoclassical rigour, local craft</span></div>
+  </div>
+
+  <div style="margin-top:32px; padding-top:24px; border-top:1px solid var(--rule);">
+    <div style="display:flex; gap:24px; flex-wrap:wrap;">
+      <a href="https://www.studioperegalli.com" target="_blank" style="font-size:12px; color:var(--taupe); letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--rule);">studioperegalli.com →</a>
+    </div>
+  </div>
+</section>
+
+
+<section id="ken-fulk" class="studio-section">
+  <div class="studio-header">
+    <p class="studio-eyebrow">27</p>
     <h2 class="studio-name">Ken Fulk</h2>
     <p class="studio-location">San Francisco · Cape Cod</p>
   </div>
@@ -1586,46 +2294,78 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- 17  VINCENT VAN DUYSEN                  -->
-<!-- ═══════════════════════════════════════ -->
-<section id="vincent-van-duysen" class="studio-section">
-  <div class="studio-header">
-    <p class="studio-eyebrow">Studio 16</p>
-    <h2 class="studio-name">Vincent Van Duysen</h2>
-    <p class="studio-location">Antwerp, Belgium</p>
-  </div>
 
-  <div class="project-card">
-    <div class="project-card-text" style="max-width:640px;">
-      <p class="project-card-eyebrow">Practice Overview</p>
-      <h3 class="project-card-title">Serene Materiality</h3>
-      <p class="project-card-body">Vincent Van Duysen Architects produces what is arguably the most refined residential architecture-and-interiors practice working in Belgium today. His projects — often in converted farmhouses, industrial buildings, or newly built villas — are defined by monolithic calm: plaster, stone, concrete, linen, and dark-stained timber deployed in massive, unhurried compositions. Light enters in long horizontal bands; surfaces wear their age; rooms breathe.</p>
-      <p class="project-card-body" style="margin-top:12px;">Van Duysen was creative director of Molteni&amp;C (2016–22), translating the studio aesthetic into furniture at scale. The furniture is as important as the architecture: his pieces for Molteni, RH, and various collaborators share the same interest in mass, proportion, and material patina. A project by VVD invariably uses his own furniture alongside antiques — a bed frame in oxidised brass, a sofa in undyed linen, a dining table in solid travertine — making the whole indivisible from the parts.</p>
-      <p class="project-card-body" style="margin-top:12px; font-style:italic; color:#8a7f75;">Key references: Minimalism with warmth · Belgian vernacular · John Pawson discipline · Axel Vervoordt restraint · Molteni&amp;C collaboration</p>
-      <a class="project-card-link" href="https://www.vincentvanduysen.com" target="_blank">vincentvanduysen.com →</a>
-    </div>
-  </div>
-
-  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-top:12px;">
-    <div class="placeholder-card"><span>Belgian Farmhouse<br/>Plaster, stone, calm proportion</span></div>
-    <div class="placeholder-card"><span>Mediterranean Villa<br/>Raked concrete, sea light</span></div>
-    <div class="placeholder-card"><span>Antwerp Townhouse<br/>Raw materiality, antique objects</span></div>
-  </div>
-
-  <div style="margin-top:32px; padding-top:24px; border-top:1px solid var(--rule);">
-    <div style="display:flex; gap:24px; flex-wrap:wrap;">
-      <a href="https://www.vincentvanduysen.com" target="_blank" style="font-size:12px; color:var(--taupe); letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--rule);">vincentvanduysen.com →</a>
-    </div>
-  </div>
+<section class="theme" id="theme-architecture">
+  <p class="theme-kicker">Studios</p>
+  <h2 class="theme-title">Architecture-led</h2>
+  <p class="theme-intro">Buildings that carry the interior — proportion, craft, and a little magic in the plan. The last of them is kept shorter: an influence, not a decorating manual.</p>
 </section>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- 18  JOSEPH DIRAND                       -->
-<!-- ═══════════════════════════════════════ -->
-<section id="joseph-dirand" class="studio-section" style="background:var(--warm-white);">
+
+<section class="firm" id="studio-ko" style="background: var(--cream);">
+  <div class="firm-header">
+    <div class="firm-num">28</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://www.studioko.fr" target="_blank">Studio KO</a></h2>
+      <p class="firm-location">Paris · Marrakech · London &nbsp;·&nbsp; Karl Fournier &amp; Olivier Marty</p>
+      <p class="firm-desc">Karl Fournier and Olivier Marty founded Studio KO in Paris in 1999 and have since become one of the most internationally admired practices of their generation — moving between rigorous Moroccan villas, London hospitality (Chiltern Firehouse), the Yves Saint Laurent Museum in Marrakech, boutiques for Aesop and Ami, and private residences across France, Morocco, Corsica, and Los Angeles. Their work holds a generative tension: "constantly torn between our desire for extremely pared-down, pure things and a more decorative, busy aesthetic." The common denominator is that their buildings are always completely in tune with their environment — materials, handicraft, landscape. Multiple features in World of Interiors.</p>
+      <span class="firm-tag">Architecture · Interior Design · Paris · Marrakech</span>
+    </div>
+  </div>
+
+  <!-- Row 1: header wide + Tangier living room -->
+  <div class="gallery gallery-2" style="gap:12px; margin-bottom:12px;">
+    <div class="img-wrap img-wide">
+      <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/11/studiokoheader4.jpg"
+           alt="Studio KO — Exterior"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-wide">
+      <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/10/studio_ko_livingroom.jpg"
+           alt="Pierre Bergé Home, Tangier — Living Room, Studio KO"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+
+  <!-- Row 2: three villas -->
+  <div class="gallery gallery-3" style="gap:12px; margin-bottom:12px;">
+    <div class="img-wrap img-tall">
+      <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/10/GHouse5-e1415034327109.jpg"
+           alt="Luberon House, France — Living Room, Studio KO"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/11/koslide1.jpg"
+           alt="Villa K, Tagadert, Morocco — Studio KO"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-tall">
+      <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/11/koslide2.jpg"
+           alt="Villa E, Ourika, Morocco — Studio KO"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+
+  <!-- Row 3: Tagadert study + Luberon pool -->
+  <div class="gallery gallery-2" style="gap:12px;">
+    <div class="img-wrap img-wide">
+      <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/10/studioko_office.jpg"
+           alt="Tagadert Villa — Study and Bedroom, Studio KO"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+    <div class="img-wrap img-wide">
+      <img loading="lazy" decoding="async" src="https://s30964.pcdn.co/introspective-magazine/wp-content/uploads/2014/10/studioko_pool2.jpg"
+           alt="Luberon House — Pool Terrace, Studio KO"
+           onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+    </div>
+  </div>
+  <p class="img-label" style="margin-top:12px;">Luberon, France &nbsp;·&nbsp; Villa K, Tagadert &nbsp;·&nbsp; Villa E, Ourika &nbsp;·&nbsp; Pierre Bergé Home, Tangier &nbsp;·&nbsp; Studio KO &nbsp;·&nbsp; Via 1stDibs Introspective</p>
+</section>
+
+
+<section id="joseph-dirand" class="studio-section">
   <div class="studio-header">
-    <p class="studio-eyebrow">Studio 17</p>
+    <p class="studio-eyebrow">29</p>
     <h2 class="studio-name">Joseph Dirand</h2>
     <p class="studio-location">Paris</p>
   </div>
@@ -1653,47 +2393,10 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- 19  ROMAN & WILLIAMS                    -->
-<!-- ═══════════════════════════════════════ -->
-<section id="roman-williams" class="studio-section">
+
+<section id="neri-hu" class="studio-section" style="background: var(--cream);">
   <div class="studio-header">
-    <p class="studio-eyebrow">Studio 18</p>
-    <h2 class="studio-name">Roman &amp; Williams</h2>
-    <p class="studio-location">New York</p>
-  </div>
-
-  <div class="project-card">
-    <div class="project-card-text" style="max-width:640px;">
-      <p class="project-card-eyebrow">Practice Overview</p>
-      <h3 class="project-card-title">Romantic Eclecticism</h3>
-      <p class="project-card-body">Stephen Alesch and Robin Standefer founded Roman &amp; Williams in 2002, bringing a production design sensibility (both had film backgrounds) to interiors. Each project constructs a complete world — a particular era and mood rendered with period-accurate but never pastiche materials. Their most celebrated work balances Victorian-era sourcing (pressed tin ceilings, salvaged brick, cast iron) with modernist furniture and contemporary art; the result is romantic without being sentimental.</p>
-      <p class="project-card-body" style="margin-top:12px;">The Guild, their Paris shop on the Île Saint-Louis, is a landmark reference point for how antiques, contemporary craft, and design objects coexist at retail scale. Key projects include The Standard Hotel New York, Le Coucou restaurant, Atera, and an extensive body of residential work in New York, the Hamptons, and internationally. Their own house in Connecticut has been widely published as a master class in romantic American country.</p>
-      <p class="project-card-body" style="margin-top:12px; font-style:italic; color:#8a7f75;">Key references: Victorian American vernacular · Arts &amp; Crafts · Film set design · Craft object collecting</p>
-      <a class="project-card-link" href="https://romanandwilliams.com" target="_blank">romanandwilliams.com →</a>
-    </div>
-  </div>
-
-  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-top:12px;">
-    <div class="placeholder-card"><span>Le Coucou<br/>Restaurant — European grandeur</span></div>
-    <div class="placeholder-card"><span>Connecticut House<br/>American country, craft layers</span></div>
-    <div class="placeholder-card"><span>The Guild, Paris<br/>Île Saint-Louis retail landmark</span></div>
-  </div>
-
-  <div style="margin-top:32px; padding-top:24px; border-top:1px solid var(--rule);">
-    <div style="display:flex; gap:24px; flex-wrap:wrap;">
-      <a href="https://romanandwilliams.com" target="_blank" style="font-size:12px; color:var(--taupe); letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--rule);">romanandwilliams.com →</a>
-      <a href="https://romanandwilliamsguild.com" target="_blank" style="font-size:12px; color:var(--taupe); letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--rule);">The Guild →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- 20  NERI & HU                           -->
-<!-- ═══════════════════════════════════════ -->
-<section id="neri-hu" class="studio-section" style="background:var(--warm-white);">
-  <div class="studio-header">
-    <p class="studio-eyebrow">Studio 19</p>
+    <p class="studio-eyebrow">30</p>
     <h2 class="studio-name">Neri &amp; Hu</h2>
     <p class="studio-location">Shanghai</p>
   </div>
@@ -1721,43 +2424,153 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- 21  STUDIO ASHBY                        -->
-<!-- ═══════════════════════════════════════ -->
-<section id="studio-ashby" class="studio-section">
-  <div class="studio-header">
-    <p class="studio-eyebrow">Studio 20</p>
-    <h2 class="studio-name">Studio Ashby</h2>
-    <p class="studio-location">London</p>
-  </div>
 
-  <div class="project-card">
-    <div class="project-card-text" style="max-width:640px;">
-      <p class="project-card-eyebrow">Practice Overview</p>
-      <h3 class="project-card-title">Colour, Craft, Personal History</h3>
-      <p class="project-card-body">Sophie Ashby launched Studio Ashby in 2012 and rapidly established a distinct position among London's younger decorators: intensely personal spaces charged with colour and personal narrative, yet grounded in serious research into craft and material. Projects frequently reference a client's cultural background or family history — rooms that feel as if they grew from a life rather than a brief.</p>
-      <p class="project-card-body" style="margin-top:12px;">The studio works across private residences, hospitality (Granger &amp; Co., various hotel projects), and cultural institutions. The characteristic visual language: deep rich walls (terracotta, forest green, inky blue), custom rugs designed for each project, considered lighting with shaded pendants and sconces, furniture mixing bespoke commissions with carefully sourced mid-century and antique pieces, and consistently strong artwork integration — many commissions placed directly with artists. Has been an active collaborator with numerous British and global craft studios.</p>
-      <p class="project-card-body" style="margin-top:12px; font-style:italic; color:#8a7f75;">Key references: Contemporary British craft · Indian textile tradition · Colour theory (David Hicks lineage) · Storytelling interiors</p>
-      <a class="project-card-link" href="https://www.studioashby.com" target="_blank">studioashby.com →</a>
+<section class="firm" id="grt-architects">
+  <div class="firm-header">
+    <div class="firm-num">31</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://grtarchitects.com" target="_blank">GRT Architects</a></h2>
+      <p class="firm-location">Brooklyn</p>
+      <p class="firm-desc">Tal Schori and Rustam-Marc Mehta founded the studio in Brooklyn in 2014. The work marries a confident material idea — tile, stone, black brick, a colored ceiling — to plans that stay disciplined. Old buildings are treated as collaborators. New ones are drawn so they might still be useful when the first owners are gone. Play lives in the craft, not in a loosened plan.</p>
+      <p class="firm-desc" style="margin-top:10px; font-style:italic; color:#8a7f75;">Key references: tile and stone · restrained plans · dialogue with existing buildings</p>
+      <span class="firm-tag">Architecture</span>
     </div>
   </div>
 
-  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-top:12px;">
-    <div class="placeholder-card"><span>London Family Home<br/>Rich colour, craft commissions, personal art</span></div>
-    <div class="placeholder-card"><span>Country House<br/>Pattern, texture, English garden</span></div>
-    <div class="placeholder-card"><span>City Apartment<br/>Terracotta walls, custom rugs, bespoke joinery</span></div>
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Dutchess County Studio</h3>
+      <p class="project-meta">Amenia, New York · 2020</p>
+      <p class="project-desc">Listed by the studio as Amenia Studio: a small house on twenty-four acres for clients testing a move upstate, planned in a pinwheel of three volumes. Textured black brick, cedar shakes, copper trim, a beak-like clerestory on each roof. Inside, the three beams meet over the kitchen. Dwell published the photographs.</p>
+    </div>
+    <div class="gallery gallery-2">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://www.grtarchitects.com/media/pages/projects/dutchess-county-studio/01f5041273-1649945603/bferry-grt-dwell-dutchesscty-final-20201008-494-edit-2-1600x.jpg" alt="Dutchess County Studio by GRT Architects, Amenia, New York" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://www.grtarchitects.com/media/pages/projects/dutchess-county-studio/ff123094e8-1649945603/bferry-grt-dwell-dutchesscty-final-20201008-714-1600x.jpg" alt="Interior of the Dutchess County Studio by GRT Architects" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">Dutchess County Studio, Amenia, NY &nbsp;·&nbsp; Photography: Brian Ferry &nbsp;·&nbsp; <a href="https://www.grtarchitects.com/projects/dutchess-county-studio" target="_blank" style="color:var(--accent); text-decoration:none;">grtarchitects.com →</a></p>
   </div>
 
-  <div style="margin-top:32px; padding-top:24px; border-top:1px solid var(--rule);">
-    <div style="display:flex; gap:24px; flex-wrap:wrap;">
-      <a href="https://www.studioashby.com" target="_blank" style="font-size:12px; color:var(--taupe); letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--rule);">studioashby.com →</a>
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Hudson River house</h3>
+      <p class="project-meta">Croton-on-Hudson, New York · 2016</p>
+      <p class="project-desc">A renovation of a mid-century house high on the east bank, designed by the client's grandmother, one of the first women to graduate from Columbia's architecture program. Two 102-foot beams run the length. GRT's work keeps the rational frame and the view, and sharpens the interior with brass, black, and white.</p>
     </div>
+    <div class="gallery gallery-2">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://www.grtarchitects.com/media/pages/projects/hudson-river-renovation/530b5b8099-1649938513/croton-exteriors-032-2x-1600x.jpg" alt="Hudson River house in Croton-on-Hudson, renovated by GRT Architects" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://www.grtarchitects.com/media/pages/projects/hudson-river-renovation/7d22ad6e08-1649938513/croton-living-room-010-edit-2x-1600x.jpg" alt="Living room of the Croton-on-Hudson house by GRT Architects" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">Hudson River house, Croton-on-Hudson &nbsp;·&nbsp; <a href="https://www.grtarchitects.com/projects/hudson-river-renovation" target="_blank" style="color:var(--accent); text-decoration:none;">grtarchitects.com →</a></p>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Narrow Townhouse</h3>
+      <p class="project-meta">Fort Greene, Brooklyn · 2016</p>
+      <p class="project-desc">Eleven feet wide — half a usual Brooklyn house — so the stair could not sit beside a corridor. The narrowness became the idea. Tile and color do the ornament; the plan stays taut. Their first residential project, and their first renovation.</p>
+    </div>
+    <div class="gallery gallery-2">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://www.grtarchitects.com/media/pages/projects/fort-greene-townhouse/37605978b4-1649938513/nicole-franzen-grt-oxford-home-131-1-1600x.jpg" alt="Fort Greene townhouse by GRT Architects" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://www.grtarchitects.com/media/pages/projects/fort-greene-townhouse/415557e87e-1649938513/nicole-franzen-grt-oxford-home-162-1600x.jpg" alt="Interior of the Fort Greene townhouse by GRT Architects" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">Narrow Townhouse, Fort Greene &nbsp;·&nbsp; Photography: Nicole Franzen &nbsp;·&nbsp; <a href="https://www.grtarchitects.com/projects/fort-greene-townhouse" target="_blank" style="color:var(--accent); text-decoration:none;">grtarchitects.com →</a></p>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- PRODUCTS / MAKERS REFERENCE             -->
-<!-- ═══════════════════════════════════════ -->
+
+<section class="firm" id="elliott-architects" style="background: var(--cream);">
+  <div class="firm-header">
+    <div class="firm-num">32</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://elliottarchitects.me" target="_blank">Elliott Architects</a></h2>
+      <p class="firm-location">Blue Hill, Maine</p>
+      <p class="firm-desc">Matthew Elliott's office in Blue Hill designs houses and a few institutional buildings, most of them on the Maine coast and islands. The studio's own words are the right ones: a search for what is essential about owner, place, and time, and, as an office, "clarity and reduction," with tradition and modernity held in balance. Craft is not a finish. It is how the building meets weather, ledge, and spruce. The rooms are calm without going cold.</p>
+      <p class="firm-desc" style="margin-top:10px; font-style:italic; color:#8a7f75;">Key references: Maine vernacular · clarity and reduction · coast and island sites</p>
+      <span class="firm-tag">Architecture</span>
+    </div>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">House Over Water</h3>
+      <p class="project-meta">Blue Hill Bay · 2016</p>
+      <p class="project-desc">The house draws the edge of a steep bank above Blue Hill Bay. Zoning limited the volume, so the mass splits: most of the living looks straight at the water, through glass, and at high tide the sea comes under the floor. Citation and People's Choice, AIA Maine, 2016. MK Purvis built it.</p>
+    </div>
+    <div class="gallery gallery-3">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/596d085603596e5c400ce3f2/1561734739692-SGRSEPT3NUF82W0UYW5D/WEB_P9B4885_edit.jpg" alt="House Over Water by Elliott Architects, Blue Hill Bay, Maine" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/596d085603596e5c400ce3f2/1500318447090-5LC4A177VM57YHDUPPXE/WEB_P9B4394_edit.jpg" alt="Interior of House Over Water, Elliott Architects" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/596d085603596e5c400ce3f2/1561734520747-L8OAQNVBDHFVX0OILKLW/WEB_P9B4227_edit.jpg" alt="View from House Over Water toward Blue Hill Bay" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">House Over Water, Blue Hill Bay &nbsp;·&nbsp; Photography: Trent Bell &nbsp;·&nbsp; <a href="https://elliottarchitects.me/house-over-water" target="_blank" style="color:var(--accent); text-decoration:none;">elliottarchitects.me →</a></p>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">House on a Bay</h3>
+      <p class="project-meta">Maine coast</p>
+      <p class="project-desc">Two bars: public rooms on the ground, in heavier material, and private rooms lifted on steel posts the size of the surrounding spruce, one end set against a stone escarpment and turned toward the Atlantic. Concrete walls lead to an entry that cuts through the mass. The current site does not give this house a town; it is a different project from the House on Casco Bay in their monograph <em>Houses of Maine</em>, a modern reading of a nineteenth-century Cape, which is not pictured in the portfolio online.</p>
+    </div>
+    <div class="gallery gallery-2">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/596d085603596e5c400ce3f2/1650650297683-37DONLNY8FCHXODZ5KIS/Elliott+S-Portdji_09271.jpg" alt="House on a Bay by Elliott Architects" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/596d085603596e5c400ce3f2/1650637918783-AMAWFNIUJO9895PQ3G1Y/_U8A2084-Pano.jpg" alt="Interior of House on a Bay, Elliott Architects" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">House on a Bay &nbsp;·&nbsp; <a href="https://elliottarchitects.me/house-on-a-bay" target="_blank" style="color:var(--accent); text-decoration:none;">elliottarchitects.me →</a></p>
+  </div>
+</section>
+
+
+<section class="firm" id="whitten-architects">
+  <div class="firm-header">
+    <div class="firm-num">33</div>
+    <div class="firm-meta">
+      <h2 class="firm-name"><a href="https://www.whittenarchitects.com" target="_blank">Whitten Architects</a></h2>
+      <p class="firm-location">Portland, Maine</p>
+      <p class="firm-desc">An architecture influence, kept lighter than the interiors studios. Rob Whitten founded the office in 1986; Russ Tyson is principal beside him. The work is residential only — camps, cottages, new houses, old ones — drawn so that, in Whitten's words, a house fits its site and looks as if it had always been there. Proportion, weather, and the Maine vernacular do the talking. Not a decorating reference; a way of siting a room.</p>
+      <p class="firm-desc" style="margin-top:10px; font-style:italic; color:#8a7f75;">Key references: Maine residential vernacular · site before style · houses that look long-settled</p>
+      <span class="firm-tag">Architecture</span>
+    </div>
+  </div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <h3 class="project-title">Englishman Bay Retreat</h3>
+      <p class="project-meta">Englishman Bay, Maine</p>
+      <p class="project-desc">A path the client had already worn, from a family camp through spruce and birch to a pebble beach, became the brief. The house sits on steel columns and barely touches the moss and rock, a treehouse posture with a protected cove on one side. Quiet, specific, and not trying to be more than the walk that found it.</p>
+    </div>
+    <div class="gallery gallery-2">
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://cdn.prod.website-files.com/62a672115d5fdfafcbe4be63/65844fd0ee7c1280e3144725_08-englishman-bay-retreat-dining.avif" alt="Dining room at Englishman Bay Retreat by Whitten Architects" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+      <div class="img-wrap img-wide">
+        <img referrerpolicy="no-referrer" loading="lazy" decoding="async" src="https://cdn.prod.website-files.com/62a672115d5fdfafcbe4be63/69024e0282fc4d87a1493850_6584511732cb936afd4a3895_09-englishman-bay-retreat-living.avif" alt="Living room at Englishman Bay Retreat by Whitten Architects" onerror="this.parentElement.style.background='#ede8e2'; this.style.display='none';"/>
+      </div>
+    </div>
+    <p class="img-label" style="margin-top:12px;">Englishman Bay Retreat, Maine &nbsp;·&nbsp; <a href="https://www.whittenarchitects.com/projects/englishman-bay-retreat" target="_blank" style="color:var(--accent); text-decoration:none;">whittenarchitects.com →</a></p>
+  </div>
+</section>
+
 <section id="products-makers" class="studio-section" style="background:var(--cream);">
   <div class="studio-header">
     <p class="studio-eyebrow">Reference</p>
@@ -1831,21 +2644,23 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- COLOPHON                                -->
-<!-- ═══════════════════════════════════════ -->
 <section style="background:var(--ink); padding:80px 40px; text-align:center;">
   <p style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:rgba(237,232,226,0.5); margin-bottom:20px;">Interior Design Reference</p>
-  <h2 style="font-family:'Cormorant Garamond', serif; font-size:36px; font-weight:300; color:var(--cream); font-style:italic; margin-bottom:8px;">Twenty Studios</h2>
-  <p style="font-size:13px; color:rgba(237,232,226,0.6); letter-spacing:.08em; margin-bottom:40px;">Collected 2024–2025</p>
-  <div style="max-width:600px; margin:0 auto; border-top:1px solid rgba(237,232,226,0.15); padding-top:32px;">
-    <p style="font-size:12px; line-height:2; color:rgba(237,232,226,0.5);">
-      Katie Martinez Design &nbsp;·&nbsp; Mother Studio &nbsp;·&nbsp; Reath Design &nbsp;·&nbsp; Commune Design<br/>
-      Nickey Kehoe &nbsp;·&nbsp; Studio KO &nbsp;·&nbsp; Arent &amp; Pyke &nbsp;·&nbsp; Studioilse &nbsp;·&nbsp; Rose Uniacke<br/>
-      Ben Pentreath &nbsp;·&nbsp; Grenney Greig &nbsp;·&nbsp; Studio Peregalli &nbsp;·&nbsp; Beata Heuman<br/>
-      Axel Vervoordt &nbsp;·&nbsp; Ken Fulk &nbsp;·&nbsp; Vincent Van Duysen &nbsp;·&nbsp; Joseph Dirand<br/>
-      Roman &amp; Williams &nbsp;·&nbsp; Neri &amp; Hu &nbsp;·&nbsp; Studio Ashby
-    </p>
+  <h2 style="font-family:'Cormorant Garamond', serif; font-size:36px; font-weight:300; color:var(--cream); font-style:italic; margin-bottom:8px;">Thirty-Three Studios</h2>
+  <p style="font-size:13px; color:rgba(237,232,226,0.6); letter-spacing:.08em; margin-bottom:40px;">Collected 2024–2026</p>
+  <div style="max-width:720px; margin:0 auto; border-top:1px solid rgba(237,232,226,0.15); padding-top:8px;">
+    <p style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(237,232,226,0.38); margin:18px 0 6px;">New England &amp; American Farmhouse Craft</p>
+<p style="font-size:12px; line-height:2; color:rgba(237,232,226,0.62);">Hendricks Churchill &nbsp;·&nbsp; Workstead &nbsp;·&nbsp; Jersey Ice Cream Co. &nbsp;·&nbsp; Heidi Caillier Design &nbsp;·&nbsp; Katie Martinez Design &nbsp;·&nbsp; Mother Studio</p>
+<p style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(237,232,226,0.38); margin:18px 0 6px;">Salvage, Patina &amp; Adaptive Reuse</p>
+<p style="font-size:12px; line-height:2; color:rgba(237,232,226,0.62);">Retrouvius &nbsp;·&nbsp; Tuckey Design Studio &nbsp;·&nbsp; Roman &amp; Williams &nbsp;·&nbsp; Green River Project</p>
+<p style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(237,232,226,0.38); margin:18px 0 6px;">Warm Restraint &amp; Quiet Materiality</p>
+<p style="font-size:12px; line-height:2; color:rgba(237,232,226,0.62);">Studioilse &nbsp;·&nbsp; Rose Uniacke &nbsp;·&nbsp; Axel Vervoordt &nbsp;·&nbsp; Atelier Vime &nbsp;·&nbsp; Vincent Van Duysen</p>
+<p style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(237,232,226,0.38); margin:18px 0 6px;">Collected Color &amp; Pattern</p>
+<p style="font-size:12px; line-height:2; color:rgba(237,232,226,0.62);">Reath Design &nbsp;·&nbsp; Commune Design &nbsp;·&nbsp; Nickey Kehoe &nbsp;·&nbsp; Beata Heuman &nbsp;·&nbsp; Studio Ashby &nbsp;·&nbsp; Arent &amp; Pyke &nbsp;·&nbsp; Studio Valle de Valle</p>
+<p style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(237,232,226,0.38); margin:18px 0 6px;">Maximalist &amp; Historic Layering</p>
+<p style="font-size:12px; line-height:2; color:rgba(237,232,226,0.62);">Ben Pentreath &nbsp;·&nbsp; Max Rollitt &nbsp;·&nbsp; Grenney Greig &nbsp;·&nbsp; Studio Peregalli &nbsp;·&nbsp; Ken Fulk</p>
+<p style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(237,232,226,0.38); margin:18px 0 6px;">Architecture-led</p>
+<p style="font-size:12px; line-height:2; color:rgba(237,232,226,0.62);">Studio KO &nbsp;·&nbsp; Joseph Dirand &nbsp;·&nbsp; Neri &amp; Hu &nbsp;·&nbsp; GRT Architects &nbsp;·&nbsp; Elliott Architects &nbsp;·&nbsp; Whitten Architects</p>
   </div>
 </section>
 
